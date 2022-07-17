@@ -1,21 +1,21 @@
 <?php
 
 return [
-    'name'                  => 'Customers',
-    'create'                => 'Create a customer',
-    'edit'                  => 'Edit customer ":name"',
-    'email'                 => 'Email',
-    'email_placeholder'     => 'Ex: example@gmail.com',
-    'password'              => 'Password',
-    'change_password'       => 'Change password?',
-    'password_confirmation' => 'Password confirmation',
-    'intro'                 => [
-        'title'       => 'Manage customers',
-        'description' => 'When a customer buy your product(s), you will know their order histories.',
-        'button_text' => 'Create customer',
+    'name' => 'Clientes',
+    'create' => 'Crear un cliente',
+    'edit' => 'Editar cliente ":name"',
+    'email' => 'Correo electrónico',
+    'email_placeholder' => 'Ej: ejemplo@gmail.com',
+    'password' => 'Contraseña',
+    'change_password' => '¿Cambiar contraseña?',
+    'password_confirmation' => 'confirmación de contraseña',
+    'intro' => [
+        'title' => 'Administrar clientes',
+        'description' => 'Cuando un cliente compre su(s) producto(s), conocerá su historial de pedidos.',
+        'button_text' => 'crear cliente',
     ],
-    'phone'                      => 'Phone',
-    'phone_placeholder'          => 'Phone',
-    'avatar'                     => 'Avatar',
-    'dob'                        => 'Date of birth',
+    'phone' => 'Teléfono',
+    'phone_placeholder' => 'Teléfono',
+    'avatar' => 'Avatar',
+    'dob' => 'Fecha de nacimiento',
 ];

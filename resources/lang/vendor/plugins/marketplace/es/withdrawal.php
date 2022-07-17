@@ -1,24 +1,24 @@
 <?php
 
 return [
-    'name'     => 'Withdrawals',
-    'edit'     => 'Edit withdrawal',
+    'name' => 'Retiros',
+    'edit' => 'Editar retiro',
     'statuses' => [
-        'pending'    => 'Pending',
-        'processing' => 'Processing',
-        'completed'  => 'Completed',
-        'canceled'   => 'Canceled',
-        'refused'    => 'Refused',
+        'pending' => 'Pending',
+        'processing' => 'Procesando',
+        'completed' => 'Completado',
+        'canceled' => 'Cancelado',
+        'refused' => 'Rechazado',
     ],
-    'amount'   => 'Amount',
-    'customer' => 'Customer',
-    'vendor'   => 'Vendor',
-    'currency' => 'Currency',
-    'forms'    => [
-        'amount'                => 'Amount',
-        'amount_placeholder'    => 'Amount you want to withdrawal',
-        'fee'                   => 'Fee',
-        'fee_helper'            => 'You have to pay a fee when withdrawing: :fee',
-        'pending_status_helper' => 'To complete withdrawal, please update status as processing then completed',
+    'amount' => 'Importe',
+    'customer' => 'Cliente',
+    'vendor' => 'vendedor',
+    'currency' => 'Divisa',
+    'forms' => [
+        'amount' => 'Monto',
+        'amount_placeholder' => 'Cantidad que desea retirar',
+        'fee' => 'Tarifa',
+        'fee_helper' => 'Tienes que pagar una comisión al retirar: :fee',
+        'pending_status_helper' => 'Para completar el retiro, actualice el estado como procesamiento y luego se completó',
     ],
 ];

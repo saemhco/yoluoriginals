@@ -1,24 +1,24 @@
 <?php
 
 return [
-    'name'     => 'Withdrawals',
-    'edit'     => 'Edit withdrawal',
+    'name' => 'Withdrawals',
+    'edit' => 'Edit withdrawal',
     'statuses' => [
-        'pending'    => 'Pending',
+        'pending' => 'Pending',
         'processing' => 'Processing',
-        'completed'  => 'Completed',
-        'canceled'   => 'Canceled',
-        'refused'    => 'Refused',
+        'completed' => 'Completed',
+        'canceled' => 'Canceled',
+        'refused' => 'Refused',
     ],
-    'amount'   => 'Amount',
+    'amount' => 'Amount',
     'customer' => 'Customer',
-    'vendor'   => 'Vendor',
+    'vendor' => 'Vendor',
     'currency' => 'Currency',
-    'forms'    => [
-        'amount'                => 'Amount',
-        'amount_placeholder'    => 'Amount you want to withdrawal',
-        'fee'                   => 'Fee',
-        'fee_helper'            => 'You have to pay a fee when withdrawing: :fee',
+    'forms' => [
+        'amount' => 'Amount',
+        'amount_placeholder' => 'Amount you want to withdrawal',
+        'fee' => 'Fee',
+        'fee_helper' => 'You have to pay a fee when withdrawing: :fee',
         'pending_status_helper' => 'To complete withdrawal, please update status as processing then completed',
     ],
 ];

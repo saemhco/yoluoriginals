@@ -1,13 +1,13 @@
 <?php
 
 return [
-    'name'   => 'Unverified vendors',
-    'verify' => 'Verify vendor',
-    'forms'  => [
-        'email'              => 'Email',
-        'store_name'         => 'Store name',
-        'store_phone'        => 'Store phone',
-        'confirmation_alert' => 'Are you sure to verify this vendor?',
-        'verify_vendor'      => 'Verify vendor',
+    'name' => 'Proveedores no verificados',
+    'verify' => 'Verificar proveedor',
+    'forms' => [
+        'email' => 'Correo electrónico',
+        'store_name' => 'Nombre de la tienda',
+        'store_phone' => 'Teléfono de la tienda',
+        'confirmation_alert' => '¿Estás seguro de verificar este proveedor?',
+        'verify_vendor' => 'Verificar proveedor',
     ],
 ];

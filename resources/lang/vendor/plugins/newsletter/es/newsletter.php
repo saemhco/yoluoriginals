@@ -1,33 +1,33 @@
 <?php
 
 return [
-    'name'     => 'Newsletters',
+    'name' => 'Boletines',
     'settings' => [
-        'email'             => [
+        'email' => [
             'templates' => [
-                'title'       => 'Newsletter',
-                'description' => 'Config newsletter email templates',
-                'to_admin'    => [
-                    'title'       => 'Email send to admin',
-                    'description' => 'Template for sending email to admin',
+                'title' => 'Boletín',
+                'description' => 'Configurar plantillas de correo electrónico para boletines',
+                'to_admin' => [
+                    'title' => 'Enviar correo electrónico al administrador',
+                    'description' => 'Plantilla para enviar correo electrónico al administrador',
                 ],
-                'to_user'     => [
-                    'title'       => 'Email send to user',
-                    'description' => 'Template for sending email to subscriber',
+                'to_user' => [
+                    'title' => 'Enviar correo electrónico al usuario',
+                    'description' => 'Plantilla para enviar correo electrónico al suscriptor',
                 ],
             ],
         ],
-        'title'             => 'Newsletter',
-        'description'       => 'Settings for newsletter',
-        'mailchimp_api_key' => 'Mailchimp API Key',
-        'mailchimp_list_id' => 'Mailchimp List ID',
-        'mailchimp_list' => 'Mailchimp List',
-        'sendgrid_api_key'  => 'Sendgrid API Key',
-        'sendgrid_list_id'  => 'Sendgrid List ID',
-        'sendgrid_list'     => 'Sendgrid List',
+        'title' => 'Boletín',
+        'description' => 'Configuraciones para el boletín',
+        'mailchimp_api_key' => 'Clave API de Mailchimp',
+        'mailchimp_list_id' => 'ID de lista de Mailchimp',
+        'mailchimp_list' => 'Lista de mailchimp',
+        'sendgrid_api_key' => 'Clave API de Sendgrid',
+        'sendgrid_list_id' => 'ID de la lista Sendgrid',
+        'sendgrid_list' => 'Lista de Sendgrid',
     ],
     'statuses' => [
-        'subscribed'   => 'Subscribed',
-        'unsubscribed' => 'Unsubscribed',
+        'subscribed' => 'Suscrito',
+        'unsubscribed' => 'Suscripción cancelada',
     ],
 ];

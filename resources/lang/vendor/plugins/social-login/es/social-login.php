@@ -2,37 +2,37 @@
 
 return [
     'settings' => [
-        'title'       => 'Social Login settings',
-        'description' => 'Configure social login options',
-        'facebook'    => [
-            'title'       => 'Facebook login settings',
-            'description' => 'Enable/disable & configure app credentials for Facebook login',
-            'app_id'      => 'App ID',
-            'app_secret'  => 'App Secret',
-            'helper'      => 'Please go to https://developers.facebook.com to create new app update App ID, App Secret. Callback URL is :callback',
+        'title' => 'Configuración de inicio de sesión social',
+        'description' => 'Configurar opciones de inicio de sesión social',
+        'facebook' => [
+            'title' => 'Configuración de inicio de sesión de Facebook',
+            'description' => 'Habilitar/deshabilitar y configurar las credenciales de la aplicación para iniciar sesión en Facebook',
+            'app_id' => 'ID de la aplicación',
+            'app_secret' => 'App secreta',
+            'helper' => 'Vaya a https://developers.facebook.com para crear una nueva actualización de la aplicación ID de la aplicación, App Secreta. La URL de devolución de llamada es :callback',
         ],
-        'google'      => [
-            'title'       => 'Google login settings',
-            'description' => 'Enable/disable & configure app credentials for Google login',
-            'app_id'      => 'App ID',
-            'app_secret'  => 'App Secret',
-            'helper'      => 'Please go to https://console.developers.google.com/apis/dashboard to create new app update App ID, App Secret. Callback URL is :callback',
+        'google' => [
+            'title' => 'Configuración de inicio de sesión de Google',
+            'description' => 'Habilitar/deshabilitar y configurar las credenciales de la aplicación para el inicio de sesión de Google',
+            'app_id' => 'ID de la aplicación',
+            'app_secret' => 'App Secreta',
+            'helper' => 'Vaya a https://console.developers.google.com/apis/dashboard para crear una nueva actualización de la aplicación ID de la aplicación, App Secreta. La URL de devolución de llamada es :callback',
         ],
-        'github'      => [
-            'title'       => 'Github login settings',
-            'description' => 'Enable/disable & configure app credentials for Github login',
-            'app_id'      => 'App ID',
-            'app_secret'  => 'App Secret',
-            'helper'      => 'Please go to https://github.com/settings/developers to create new app update App ID, App Secret. Callback URL is :callback',
+        'github' => [
+            'title' => 'Configuración de inicio de sesión de Github',
+            'description' => 'Habilitar/deshabilitar y configurar las credenciales de la aplicación para iniciar sesión en Github',
+            'app_id' => 'ID de la aplicación',
+            'app_secret' => 'App Secreta',
+            'helper' => 'Vaya a https://github.com/settings/developers para crear una nueva actualización de la aplicación ID de la aplicación, App Secreta. La URL de devolución de llamada es  :callback',
         ],
-        'linkedin'    => [
-            'title'       => 'Linkedin login settings',
-            'description' => 'Enable/disable & configure app credentials for Linkedin login',
-            'app_id'      => 'App ID',
-            'app_secret'  => 'App Secret',
-            'helper'      => 'Please go to https://www.linkedin.com/developers/apps/new to create new app update App ID, App Secret. Callback URL is :callback',
+        'linkedin' => [
+            'title' => 'Configuración de inicio de sesión de Linkedin',
+            'description' => 'Habilitar/deshabilitar y configurar las credenciales de la aplicación para iniciar sesión en Linkedin',
+            'app_id' => 'ID de la aplicación',
+            'app_secret' => 'App Secreta',
+            'helper' => 'Vaya a https://www.linkedin.com/developers/apps/new para crear una nueva actualización de la aplicación ID de la aplicación, App Secreta. La URL de devolución de llamada es :callback',
         ],
-        'enable'      => 'Enable?',
+        'enable' => '¿Habilitar?',
     ],
-    'menu'     => 'Social Login',
+    'menu' => 'Inicio de sesión social',
 ];

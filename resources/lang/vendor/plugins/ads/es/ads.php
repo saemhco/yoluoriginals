@@ -1,14 +1,14 @@
 <?php
 
 return [
-    'name'       => 'Ads',
-    'create'     => 'New ads',
-    'edit'       => 'Edit ads',
-    'location'   => 'Location',
-    'url'        => 'URL',
-    'expired_at' => 'Expired at',
-    'key'        => 'Key',
-    'shortcode'  => 'Shortcode',
-    'clicked'    => 'Clicked',
-    'not_set'    => 'Not set',
+    'name' => 'Anuncios',
+    'create' => 'Nuevos anuncios',
+    'edit' => 'Editar anuncios',
+    'location' => 'Ubicación',
+    'url' => 'URL',
+    'expired_at' => 'Caducado a las',
+    'key' => 'Key',
+    'shortcode' => 'Shortcode',
+    'clicked' => 'Hizo clic',
+    'not_set' => 'no establecido',
 ];

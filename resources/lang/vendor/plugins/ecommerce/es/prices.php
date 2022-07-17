@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'name'   => 'Price',
-    'create' => 'New price',
-    'edit'   => 'Edit price',
-    'list'   => 'List price',
+    'name' => 'Precio',
+    'create' => 'Nuevo precio',
+    'edit' => 'Editar precio',
+    'list' => 'Lista de precio',
 ];

@@ -1,16 +1,16 @@
 <?php
 
 return [
-    'name'   => 'Product categories',
-    'create' => 'Create new product category',
-    'edit'   => 'Edit product category',
-    'list'   => 'List product categories',
-    'none'   => 'None',
-    'menu'   => 'Product categories',
-    'intro'  => [
-        'title'       => 'Manage product categories',
-        'description' => 'Such as clothes, shoes, bags, jewelry ...',
-        'button_text' => 'Create product category',
+    'name' => 'Categorías de Producto',
+    'create' => 'Crear nueva categoría de producto',
+    'edit' => 'Editar categoría de producto',
+    'list' => 'Lista de categorías de productos',
+    'none' => 'Ninguno',
+    'menu' => 'Categorías de Producto',
+    'intro' => [
+        'title' => 'Administrar categorías de productos',
+        'description' => 'Como ropa, zapatos, bolsos, joyas...',
+        'button_text' => 'Crear categoría de producto',
     ],
-    'total_products' => 'Total products: :total',
+    'total_products' => 'Total de productos: :total',
 ];

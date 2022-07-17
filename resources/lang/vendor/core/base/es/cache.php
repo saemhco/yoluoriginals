@@ -1,33 +1,33 @@
 <?php
 
 return [
-    'cache_management' => 'Cache management',
-    'cache_commands'   => 'Clear cache commands',
-    'commands'         => [
-        'clear_cms_cache'        => [
-            'title'       => 'Clear all CMS cache',
-            'description' => 'Clear CMS caching: database caching, static blocks... Run this command when you don\'t see the changes after updating data.',
-            'success_msg' => 'Cache cleaned',
+    'cache_management' => 'Gestión de caché',
+    'cache_commands' => 'Borrar comandos de caché',
+    'commands' => [
+        'clear_cms_cache' => [
+            'title' => 'Borrar todo el caché CMS',
+            'description' => 'Borrar almacenamiento en caché de CMS: almacenamiento en caché de base de datos, bloques estáticos... Ejecute este comando cuando no vea los cambios después de actualizar los datos.',
+            'success_msg' => 'Caché limpiado',
         ],
         'refresh_compiled_views' => [
-            'title'       => 'Refresh compiled views',
-            'description' => 'Clear compiled views to make views up to date.',
-            'success_msg' => 'Cache view refreshed',
+            'title' => 'Actualizar vistas compiladas',
+            'description' => 'Borre las vistas compiladas para actualizar las vistas.',
+            'success_msg' => 'Vista de caché actualizada',
         ],
-        'clear_config_cache'     => [
-            'title'       => 'Clear config cache',
-            'description' => 'You might need to refresh the config caching when you change something on production environment.',
-            'success_msg' => 'Config cache cleaned',
+        'clear_config_cache' => [
+            'title' => 'Borrar caché de configuración',
+            'description' => 'Es posible que deba actualizar el almacenamiento en caché de configuración cuando cambie algo en el entorno de producción.',
+            'success_msg' => 'Caché de configuración limpiado',
         ],
-        'clear_route_cache'      => [
-            'title'       => 'Clear route cache',
-            'description' => 'Clear cache routing.',
-            'success_msg' => 'The route cache has been cleaned',
+        'clear_route_cache' => [
+            'title' => 'Borrar caché de ruta',
+            'description' => 'Borrar enrutamiento de caché.',
+            'success_msg' => 'Se ha limpiado la caché de rutas.',
         ],
-        'clear_log'              => [
-            'title'       => 'Clear log',
-            'description' => 'Clear system log files',
-            'success_msg' => 'The system log has been cleaned',
+        'clear_log' => [
+            'title' => 'Borrar registro',
+            'description' => 'Borrar archivos de registro del sistema',
+            'success_msg' => 'El registro del sistema ha sido limpiado',
         ],
     ],
 ];

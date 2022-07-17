@@ -1,21 +1,21 @@
 <?php
 
 return [
-    'form'          => [
-        'name'                    => 'Name',
-        'name_placeholder'        => 'Tag\'s name (Maximum 120 characters)',
-        'description'             => 'Description',
-        'description_placeholder' => 'Short description for tag (Maximum 400 characters)',
-        'categories'              => 'Categories',
+    'form' => [
+        'name' => 'Nombre',
+        'name_placeholder' => 'Nombre de la etiqueta (Máximo 120 caracteres)',
+        'description' => 'Descripción',
+        'description_placeholder' => 'Breve descripción de la etiqueta (Máximo 400 caracteres)',
+        'categories' => 'Categorías',
     ],
-    'notices'       => [
-        'no_select' => 'Please select at least one tag to take this action!',
+    'notices' => [
+        'no_select' => 'Seleccione al menos una etiqueta para realizar esta acción.',
     ],
-    'create'        => 'Create new tag',
-    'edit'          => 'Edit tag',
-    'cannot_delete' => 'Tag could not be deleted',
-    'deleted'       => 'Tag deleted',
-    'menu'          => 'Tags',
-    'edit_this_tag' => 'Edit this tag',
-    'menu_name'     => 'Tags',
+    'create' => 'Crear nueva etiqueta',
+    'edit' => 'Editar etiqueta',
+    'cannot_delete' => 'No se pudo eliminar la etiqueta',
+    'deleted' => 'Etiqueta eliminada',
+    'menu' => 'Etiquetas',
+    'edit_this_tag' => 'Editar esta etiqueta',
+    'menu_name' => 'Etiquetas',
 ];

@@ -1,28 +1,28 @@
 <?php
 
 return [
-    'yes'                       => 'Yes',
-    'no'                        => 'No',
-    'is_default'                => 'Is default?',
-    'proc_close_disabled_error' => 'Function proc_close() is disabled. Please contact your hosting provider to enable
-    it. Or you can add to .env: CAN_EXECUTE_COMMAND=false to disable this feature.',
-    'email_template'            => [
-        'header'           => 'Email template header',
-        'footer'           => 'Email template footer',
-        'site_title'       => 'Site title',
-        'site_url'         => 'Site URL',
-        'site_logo'        => 'Site Logo',
-        'date_time'        => 'Current date time',
-        'date_year'        => 'Current year',
-        'site_admin_email' => 'Site admin email',
+    'yes' => 'Si',
+    'no' => 'No',
+    'is_default' => '¿es por defecto?',
+    'proc_close_disabled_error' => 'La función proc_close() está deshabilitada. Póngase en contacto con su proveedor de alojamiento para habilitar'."\n"
+        .'    eso. O puede agregar a .env: CAN_EXECUTE_COMMAND=false para deshabilitar esta característica.',
+    'email_template' => [
+        'header' => 'Plantilla del encabezado de correo electrónico',
+        'footer' => 'Plantilla de pie de página de  correo electrónico',
+        'site_title' => 'Titulo del sitio',
+        'site_url' => 'Sitio URL',
+        'site_logo' => 'Logo del sitio',
+        'date_time' => 'Hora de la fecha actual',
+        'date_year' => 'año corriente',
+        'site_admin_email' => 'Correo electrónico del administrador del sitio',
     ],
-    'change_image'              => 'Change image',
-    'delete_image'              => 'Delete image',
-    'preview_image'             => 'Preview image',
-    'image'                     => 'Image',
-    'using_button'              => 'Using button',
-    'select_image'              => 'Select image',
-    'to_add_more_image'         => 'to add more images',
-    'add_image'                 => 'Add image',
-    'tools'                     => 'Tools'
+    'change_image' => 'Cambiar imagen',
+    'delete_image' => 'Eliminar imagen',
+    'preview_image' => 'Vista previa del imagen',
+    'image' => 'Imagen',
+    'using_button' => 'Usando el botón',
+    'select_image' => 'Seleccionar imagen',
+    'to_add_more_image' => 'to add more images',
+    'add_image' => 'Agregar imagen',
+    'tools' => 'Herramientas',
 ];

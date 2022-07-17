@@ -1,0 +1,50 @@
+[07-Jul-2022 03:12:44 UTC] PHP Warning:  require(/home/yoluor5/app.yoluoriginals.com/vendor/autoload.php): failed to open stream: No such file or directory in /home/yoluor5/app.yoluoriginals.com/artisan on line 18
+[07-Jul-2022 03:12:44 UTC] PHP Fatal error:  require(): Failed opening required '/home/yoluor5/app.yoluoriginals.com/vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/yoluor5/app.yoluoriginals.com/artisan on line 18
+[07-Jul-2022 05:40:42 UTC] PHP Fatal error:  Uncaught ReflectionException: Class env does not exist in /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php:873
+Stack trace:
+#0 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(873): ReflectionClass->__construct('env')
+#1 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(754): Illuminate\Container\Container->build('env')
+#2 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(841): Illuminate\Container\Container->resolve('env', Array, true)
+#3 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(692): Illuminate\Foundation\Application->resolve('env', Array)
+#4 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(826): Illuminate\Container\Container->make('env', Array)
+#5 /home/yoluor5/app.yoluoriginals.com/vendor/lar in /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 875
+[07-Jul-2022 05:45:16 UTC] PHP Fatal error:  Uncaught ReflectionException: Class env does not exist in /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php:873
+Stack trace:
+#0 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(873): ReflectionClass->__construct('env')
+#1 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(754): Illuminate\Container\Container->build('env')
+#2 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(841): Illuminate\Container\Container->resolve('env', Array, true)
+#3 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(692): Illuminate\Foundation\Application->resolve('env', Array)
+#4 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(826): Illuminate\Container\Container->make('env', Array)
+#5 /home/yoluor5/app.yoluoriginals.com/vendor/lar in /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 875
+[07-Jul-2022 05:49:24 UTC] PHP Fatal error:  Uncaught ReflectionException: Class env does not exist in /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php:873
+Stack trace:
+#0 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(873): ReflectionClass->__construct('env')
+#1 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(754): Illuminate\Container\Container->build('env')
+#2 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(841): Illuminate\Container\Container->resolve('env', Array, true)
+#3 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(692): Illuminate\Foundation\Application->resolve('env', Array)
+#4 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(826): Illuminate\Container\Container->make('env', Array)
+#5 /home/yoluor5/app.yoluoriginals.com/vendor/lar in /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 875
+[07-Jul-2022 05:52:36 UTC] PHP Fatal error:  Uncaught ReflectionException: Class env does not exist in /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php:873
+Stack trace:
+#0 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(873): ReflectionClass->__construct('env')
+#1 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(754): Illuminate\Container\Container->build('env')
+#2 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(841): Illuminate\Container\Container->resolve('env', Array, true)
+#3 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(692): Illuminate\Foundation\Application->resolve('env', Array)
+#4 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(826): Illuminate\Container\Container->make('env', Array)
+#5 /home/yoluor5/app.yoluoriginals.com/vendor/lar in /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 875
+[07-Jul-2022 05:54:43 UTC] PHP Fatal error:  Uncaught ReflectionException: Class env does not exist in /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php:873
+Stack trace:
+#0 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(873): ReflectionClass->__construct('env')
+#1 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(754): Illuminate\Container\Container->build('env')
+#2 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(841): Illuminate\Container\Container->resolve('env', Array, true)
+#3 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(692): Illuminate\Foundation\Application->resolve('env', Array)
+#4 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(826): Illuminate\Container\Container->make('env', Array)
+#5 /home/yoluor5/app.yoluoriginals.com/vendor/lar in /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 875
+[07-Jul-2022 05:55:24 UTC] PHP Fatal error:  Uncaught ReflectionException: Class env does not exist in /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php:873
+Stack trace:
+#0 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(873): ReflectionClass->__construct('env')
+#1 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(754): Illuminate\Container\Container->build('env')
+#2 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(841): Illuminate\Container\Container->resolve('env', Array, true)
+#3 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(692): Illuminate\Foundation\Application->resolve('env', Array)
+#4 /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(826): Illuminate\Container\Container->make('env', Array)
+#5 /home/yoluor5/app.yoluoriginals.com/vendor/lar in /home/yoluor5/app.yoluoriginals.com/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 875

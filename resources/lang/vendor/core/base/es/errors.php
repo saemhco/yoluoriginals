@@ -1,23 +1,24 @@
 <?php
+
 return [
-    '401_title' => 'Permission Denied',
-    '401_msg'   => '<li>You have not been granted access to the section by the administrator.</li>
-	                <li>You may have the wrong account type.</li>
-	                <li>You are not authorized to view the requested resource.</li>
-	                <li>Your subscription may have expired.</li>',
-    '404_title' => 'Page could not be found',
-    '404_msg'   => '<li>The page you requested does not exist.</li>
-	                <li>The link you clicked is no longer.</li>
-	                <li>The page may have moved to a new location.</li>
-	                <li>An error may have occurred.</li>
-	                <li>You are not authorized to view the requested resource.</li>',
-    '500_title' => 'Page could not be loaded',
-    '500_msg'   => '<li>The page you requested does not exist.</li>
-	                <li>The link you clicked is no longer.</li>
-	                <li>The page may have moved to a new location.</li>
-	                <li>An error may have occurred.</li>
-	                <li>You are not authorized to view the requested resource.</li>',
-    'reasons'   => 'This may have occurred because of several reasons',
-    'try_again' => 'Please try again in a few minutes, or alternatively return to the homepage by <a href="' . route('dashboard.index') . '">clicking here</a>.',
-    'not_found' => 'Not Found',
+    '401_title' => 'Permiso denegado',
+    '401_msg' => '<li>El administrador no le ha otorgado acceso a la sección.</li>'."\n"
+        .'	                <li>Es posible que tenga el tipo de cuenta incorrecto.</li>'."\n"
+        .'	                <li>No está autorizado para ver el recurso solicitado.</li>'."\n"
+        .'	                <li>Es posible que su suscripción haya caducado.</li>',
+    '404_title' => 'No se pudo encontrar la página',
+    '404_msg' => '<li>La página que solicitó no existe.</li>'."\n"
+        .'                       <li>El enlace en el que hizo clic ya no existe.</li>'."\n"
+        .'                      <li>Es posible que la página se haya movido a una nueva ubicación.</li>'."\n"
+        .'                     <li>Es posible que se haya producido un error.</li>'."\n"
+        .'                    <li>No está autorizado para ver el recurso solicitado.</li>',
+    '500_title' => 'No se pudo cargar la página',
+    '500_msg' => '<li>La página que solicitó no existe.</li>'."\n"
+        .'	                <li>El enlace en el que hizo clic ya no existe.</li>'."\n"
+        .'	                <li>Es posible que la página se haya movido a una nueva ubicación.</li>'."\n"
+        .'	                <li>Es posible que se haya producido un error.</li>'."\n"
+        .'	                <li>No está autorizado para ver el recurso solicitado.</li>',
+    'reasons' => 'Esto puede haber ocurrido debido a varias razones',
+    'try_again' => 'Vuelva a intentarlo en unos minutos o, como alternativa, vuelva a la página de inicio <a href="https://app.yoluoriginals.com/admin">haciendo clic aquí</a>.',
+    'not_found' => 'No enontrado',
 ];

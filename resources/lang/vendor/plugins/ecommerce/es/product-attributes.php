@@ -1,12 +1,12 @@
 <?php
 
 return [
-    'name'   => 'Product attributes',
-    'create' => 'New product attribute',
-    'edit'   => 'Edit product attribute',
-    'intro'  => [
-        'title'       => 'Manage product attributes',
-        'description' => 'Product attribute such as color, width, height ...',
-        'button_text' => 'Create product attribute',
+    'name' => 'Atributos del producto',
+    'create' => 'Nuevo atributo de producto',
+    'edit' => 'Editar atributo de producto',
+    'intro' => [
+        'title' => 'Administrar atributos de productos',
+        'description' => 'Atributo del producto como color, ancho, alto...',
+        'button_text' => 'Crear atributo de producto',
     ],
 ];

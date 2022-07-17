@@ -1,11 +1,11 @@
 <?php
 
 return [
-    'name'       => 'Taxes',
-    'create'     => 'Create a tax',
-    'edit'       => 'Edit tax :title',
-    'title'      => 'Title',
-    'percentage' => 'Percentage %',
-    'priority'   => 'Priority',
-    'select_tax' => '-- select --',
+    'name' => 'Impuestos',
+    'create' => 'crear un impuesto',
+    'edit' => 'Editar impuesto :title',
+    'title' => 'Titulo',
+    'percentage' => 'Porcentaje %',
+    'priority' => 'Prioridad',
+    'select_tax' => '-- seleccionar --',
 ];

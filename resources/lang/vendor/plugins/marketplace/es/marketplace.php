@@ -1,27 +1,27 @@
 <?php
 
 return [
-    'name'            => 'Marketplace',
-    'email'           => [
-        'store_name'                  => 'Store name',
-        'store_new_order_title'       => 'Send order to store',
-        'store_new_order_description' => 'Send email to store when a customer an order placed',
-        'verify_vendor_title'         => 'Verify vendor',
-        'verify_vendor_description'   => 'Send email to the admin when a vendor registers',
+    'name' => 'Marketplace',
+    'email' => [
+        'store_name' => 'Nombre de la tienda',
+        'store_new_order_title' => 'Enviar pedido a tienda',
+        'store_new_order_description' => 'Enviar correo electrónico a la tienda cuando un cliente realiza un pedido',
+        'verify_vendor_title' => 'Verificar proveedor',
+        'verify_vendor_description' => 'Enviar correo electrónico al administrador cuando un proveedor se registre',
     ],
-    'current_balance' => 'Current balance',
-    'settings'        => [
-        'name'                  => 'Settings',
-        'title'                 => 'Settings for marketplace',
-        'description'           => '...',
-        'fee_per_order'         => 'Fee per order (%), suggest: 2 or 3',
-        'fee_withdrawal'        => 'Fee withdrawal (Fixed amount)',
-        'check_valid_signature' => 'Check valid signature in vendor\'s earnings',
-        'verify_vendor'         => 'Verify vendor when registered',
+    'current_balance' => 'Saldo actual',
+    'settings' => [
+        'name' => 'Ajustes',
+        'title' => 'Ajustes de marketplace',
+        'description' => '...',
+        'fee_per_order' => 'Tarifa por pedido (%), sugerimos: 2 o 3',
+        'fee_withdrawal' => 'Cuota de retiro (Cantidad fija)',
+        'check_valid_signature' => 'Verifique la firma válida en las ganancias del proveedor',
+        'verify_vendor' => 'Verificar proveedor cuando esté registrado',
     ],
-    'theme_options'   => [
-        'name'                  => 'Marketplace',
-        'description'           => 'Theme options for Marketplace',
-        'logo_vendor_dashboard' => 'Logo in the vendor dashboard (Default is the main logo)',
+    'theme_options' => [
+        'name' => 'Marketplace',
+        'description' => 'Opciones de tema para Marketplace',
+        'logo_vendor_dashboard' => 'Logo en el panel del proveedor (el logo predeterminado es el principal)',
     ],
 ];

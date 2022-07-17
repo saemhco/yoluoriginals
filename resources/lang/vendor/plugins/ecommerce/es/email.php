@@ -1,29 +1,22 @@
 <?php
 
 return [
-    'customer_new_order_title'       => 'Order confirmation',
-    'customer_new_order_description' => 'Send email confirmation to customer when an order placed',
-
-    'order_cancellation_title'       => 'Order cancellation',
-    'order_cancellation_description' => 'Send to custom when they cancelled order',
-
-    'delivery_confirmation_title'       => 'Delivering confirmation',
-    'delivery_confirmation_description' => 'Send to customer when order is delivering',
-
-    'admin_new_order_title'       => 'Notice about new order',
-    'admin_new_order_description' => 'Send to administrators when an order placed',
-
-    'order_confirmation_title'       => 'Order confirmation',
-    'order_confirmation_description' => 'Send to customer when they order was confirmed by admins',
-
-    'payment_confirmation_title'       => 'Payment confirmation',
-    'payment_confirmation_description' => 'Send to customer when their payment was confirmed',
-
-    'order_recover_title'       => 'Incomplete order',
-    'order_recover_description' => 'Send to custom to remind them about incomplete orders',
-    'view_order'                => 'View order',
-    'link_go_to_our_shop'       => 'or <a href=":link">Go to our shop</a>',
-    'order_number'              => 'Order number: <strong>:order_id</strong>',
-    'order_information'         => 'Order information:',
+    'customer_new_order_title' => 'Confirmación del pedido',
+    'customer_new_order_description' => 'Enviar confirmación por correo electrónico al cliente cuando se realiza un pedido',
+    'order_cancellation_title' => 'Cancelación de orden',
+    'order_cancellation_description' => 'Enviar a la aduana cuando cancelaron el pedido',
+    'delivery_confirmation_title' => 'Entregando confirmación',
+    'delivery_confirmation_description' => 'Enviar al cliente cuando el pedido se está entregando',
+    'admin_new_order_title' => 'Aviso sobre nuevo pedido',
+    'admin_new_order_description' => 'Enviar a los administradores cuando se realiza un pedido',
+    'order_confirmation_title' => 'Confirmación del pedido',
+    'order_confirmation_description' => 'Enviar al cliente cuando los administradores confirmaron el pedido',
+    'payment_confirmation_title' => 'Confirmación de pago',
+    'payment_confirmation_description' => 'Enviar al cliente cuando se confirme su pago',
+    'order_recover_title' => 'Pedido incompleto',
+    'order_recover_description' => 'Enviar a la aduana para recordarles los pedidos incompletos',
+    'view_order' => 'Ver pedido',
+    'link_go_to_our_shop' => 'o <a href=":link">Ir a nuestra tienda</a>',
+    'order_number' => 'Número de orden:<strong>:order_id</strong>',
+    'order_information' => 'Información del pedido:',
 ];
-

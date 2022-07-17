@@ -2,8 +2,8 @@
 
 return [
     'statuses' => [
-        'draft'     => 'Draft',
-        'pending'   => 'Pending',
-        'published' => 'Published',
+        'draft' => 'Reclutar',
+        'pending' => 'Pendiente',
+        'published' => 'Publicado',
     ],
 ];

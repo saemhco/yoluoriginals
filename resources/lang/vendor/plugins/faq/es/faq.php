@@ -1,21 +1,21 @@
 <?php
 
 return [
-    'name'              => 'FAQ',
-    'create'            => 'New faq',
-    'edit'              => 'Edit faq',
-    'question'          => 'Question',
-    'answer'            => 'Answer',
-    'category'          => 'Category',
-    'all'               => 'All',
-    'faq_schema_config' => 'FAQ schema configuration (:link)',
-    'learn_more'        => 'Learn more',
-    'settings'          => [
-        'title'                         => 'FAQ',
-        'description'                   => 'Settings for FAQ',
-        'enable_faq_schema'             => 'Enable FAQ Schema?',
-        'enable_faq_schema_description' => 'Learn more: https://developers.google.com/search/docs/data-types/faqpage',
+    'name' => 'Preguntas Frecuentes (FAQ)',
+    'create' => 'Nuevas preguntas frecuentes',
+    'edit' => 'Editar preguntas frecuentes',
+    'question' => 'Preguntas',
+    'answer' => 'Responer',
+    'category' => 'Categoría',
+    'all' => 'Todo',
+    'faq_schema_config' => 'Configuración del esquema de FAQ (:link)',
+    'learn_more' => 'Más información',
+    'settings' => [
+        'title' => 'Preguntas Frecuentes (FAQ)',
+        'description' => 'Configuración de  FAQ',
+        'enable_faq_schema' => '¿Habilitar esquema de FAQ?',
+        'enable_faq_schema_description' => 'Ver mas: https://developers.google.com/search/docs/data-types/faqpage',
     ],
-    'select_category'   => 'Select a category',
-    'add_item'          => 'Add item',
+    'select_category' => 'Seleccione una categoría',
+    'add_item' => 'Añadir elemento',
 ];

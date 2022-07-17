@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'meta_box_header'     => 'Search Engine Optimize',
-    'edit_seo_meta'       => 'Edit SEO meta',
-    'default_description' => 'Setup meta title & description to make your site easy to discovered on search engines such as Google',
-    'seo_title'           => 'SEO Title',
-    'seo_description'     => 'SEO description',
+    'meta_box_header' => 'Optimización de motores de búsqueda',
+    'edit_seo_meta' => 'Editar meta SEO',
+    'default_description' => 'Configure el metatítulo y la descripción para que su sitio sea fácil de descubrir en motores de búsqueda como Google',
+    'seo_title' => 'Título SEO',
+    'seo_description' => 'Descripción SEO',
 ];
