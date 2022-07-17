@@ -7,7 +7,7 @@ return [
         'password' => 'Contraseña',
         'title' => 'Inicio de sesión de usuario',
         'remember' => '¿Recuérdame?',
-        'login' => 'Iniciar sesión',
+        'login' => 'Ingresar',
         'placeholder' => [
             'username' => 'Por favor, ingrese su nombre de usuario',
             'email' => 'Por favor ingrese su correo electrónico',
@@ -21,8 +21,8 @@ return [
     ],
     'forgot_password' => [
         'title' => 'Has olvidado tu contraseña',
-        'message' => '<p>¿Has olvidado tu contraseña?</p><p>'."\n"
-            .'Por favor ingrese su cuenta de correo electrónico. El sistema enviará un correo electrónico con un enlace activo para restablecer su contraseña.</p>',
+        'message' => '<p>¿Has olvidado tu contraseña?</p><p>' . "\n"
+            . 'Por favor ingrese su cuenta de correo electrónico. El sistema enviará un correo electrónico con un enlace activo para restablecer su contraseña.</p>',
         'submit' => 'Enviar',
     ],
     'reset' => [
