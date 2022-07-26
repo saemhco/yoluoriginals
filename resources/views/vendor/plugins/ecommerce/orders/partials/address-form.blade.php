@@ -90,7 +90,24 @@
                 </div>
             </div>
         </div>
-
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="domicilio"> Domicilio : <span class="text-danger">*</span> </label>
+                    <input type="text" class="form-control required" value="" id="domicilio" name="domicilio" required> </div>
+            </div>   
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="ubigeo_domicilio"> Lugar de Envío : <span class="text-danger">*</span> </label>
+                    <!-- <input type="text" class="form-control required" value="" id="ubigeo_domicilio" name="ubigeo_domicilio">  -->
+                    <select class="form-control select_2 required" id="ubigeo_domicilio" name="ubigeo_domicilio" required></select>
+                    <div class="invalid-feedback">
+                        Seleccione su lugar de domicilio
+                    </div>
+                </div>
+            </div> 
+        </div>
+{{-- 
         <div class="row">
             @if (count(EcommerceHelper::getAvailableCountries()) > 1)
                 <div class="col-12">
@@ -139,7 +156,7 @@
                     </div>
                 </div>
             @endif
-        </div>
+        </div> --}}
     </div>
 
     @if (!auth('customer')->check())
@@ -171,3 +188,73 @@
         </div>
     @endif
 </div>
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+
+$(document).ready(function() {
+    
+    console.log("sdads");
+
+    $(".select_2").select2({
+        tags: true,
+            tokenSeparators: [','],
+        placeholder: "Distrito - provincia - departamento",
+        minimumInputLength: 3,
+        ajax: {
+            url: '/buscar_ubigeo_reniec',
+            dataType: 'json',
+            type:   'GET',
+            delay: 10,
+            beforeSend: function () {
+          console.log('enviando....');
+        },
+            data: function(params) {
+                return {
+                    search: params.term,
+                };
+            },
+            processResults: function (data) {
+                  return {
+                    results: data
+                  };
+            },
+            cache: true
+        },
+        language: 
+        {
+            
+            errorLoading: function () {
+                return "La carga falló";
+            },
+            inputTooLong: function (e) {
+                var t = e.input.length - e.maximum,
+                    n = "Por favor, elimine " + t + " car";
+                return t == 1 ? (n += "ácter") : (n += "acteres"), n;
+            },
+            inputTooShort: function (e) {
+                var t = e.minimum - e.input.length,
+                    n = "Por favor, introduzca " + t + " car";
+                return t == 1 ? (n += "ácter") : (n += "acteres"), n;
+            },
+            loadingMore: function () {
+                return "Cargando más resultados…";
+            },
+            maximumSelected: function (e) {
+                var t = "Sólo puede seleccionar " + e.maximum + " elemento";
+                return e.maximum != 1 && (t += "s"), t;
+            },
+            noResults: function () {
+                return "No se encontraron resultados";
+            },
+            searching: function () {
+                return "Buscando…";
+            },
+        },
+    });
+});
+</script>
+

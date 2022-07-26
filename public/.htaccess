@@ -19,6 +19,3 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
-RewriteCond %{HTTP_HOST} ^app\.yoluoriginals\.com$
-RewriteRule ^/?$ "https\:\/\/yoluoriginals\.com\/" [R=301,L]
-
