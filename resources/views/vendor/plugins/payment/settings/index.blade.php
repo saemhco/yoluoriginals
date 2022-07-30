@@ -1,31 +1,140 @@
 @extends('core/base::layouts.master')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="group flexbox-annotated-section">
-                <div class="col-md-3">
-                    <h4>{{ trans('plugins/payment::payment.payment_methods') }}</h4>
-                    <p>{{ trans('plugins/payment::payment.payment_methods_description') }}</p>
-                </div>
-                <div class="col-md-9">
-                    @php do_action(BASE_ACTION_META_BOXES, 'top', new \Botble\Payment\Models\Payment) @endphp
+<div class="container">
+    <div class="row">
+        <div class="group flexbox-annotated-section">
+            <div class="col-md-3">
+                <h4>{{ trans('plugins/payment::payment.payment_methods') }}</h4>
+                <p>{{ trans('plugins/payment::payment.payment_methods_description') }}</p>
+            </div>
+            <div class="col-md-9">
+                @php do_action(BASE_ACTION_META_BOXES, 'top', new \Botble\Payment\Models\Payment) @endphp
 
-                    <div class="wrapper-content pd-all-20">
-                        {!! Form::open(['route' => 'payments.settings']) !!}
-                        <div class="form-group">
-                            <label for="default_payment_method">{{ trans('plugins/payment::payment.default_payment_method') }}</label>
-                            {!! Form::customSelect('default_payment_method', \Botble\Payment\Enums\PaymentMethodEnum::labels(), setting('default_payment_method', Botble\Payment\Enums\PaymentMethodEnum::STRIPE)) !!}
-                        </div>
-                        <button type="button" class="btn btn-info button-save-payment-settings">{{ trans('core/base::forms.save') }}</button>
-                        {!! Form::close() !!}
+                <div class="wrapper-content pd-all-20">
+                    {!! Form::open(['route' => 'payments.settings']) !!}
+                    <div class="form-group">
+                        <label for="default_payment_method">{{ trans('plugins/payment::payment.default_payment_method') }}</label>
+                        {!! Form::customSelect('default_payment_method', \Botble\Payment\Enums\PaymentMethodEnum::labels(), setting('default_payment_method', Botble\Payment\Enums\PaymentMethodEnum::IZIPAY)) !!}
                     </div>
+                    <button type="button" class="btn btn-info button-save-payment-settings">{{ trans('core/base::forms.save') }}</button>
+                    {!! Form::close() !!}
+                </div>
 
-                    <br>
+                <br>
 
-                    @php $stripeStatus = setting('payment_stripe_status'); @endphp
-                    <table class="table payment-method-item">
-                        <tbody><tr class="border-pay-row">
+                @php $iziPayStatus = setting('payment_izi_pay_status'); @endphp
+
+                <table class="table payment-method-item">
+                    <tbody>
+                        <tr class="border-pay-row">
+                            <td class="border-pay-col"><i class="fa fa-theme-payments"></i></td>
+                            <td style="width: 20%;">
+                                <img class="filter-black" src="https://www.analytics.pe/wp-content/uploads/2019/04/logo-izipay.png" alt="IziPay">
+                            </td>
+                            <td class="border-right">
+                                <ul>
+                                    <li>
+                                        <a href="https://www.izipay.pe" target="_blank">IziPay</a>
+                                        <p>{{ trans('plugins/payment::payment.izi_pay_description') }}</p>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="border-none-t">
+                        <tr class="bg-white">
+                            <td colspan="3">
+                                <div class="float-left" style="margin-top: 5px;">
+                                    <div class="payment-name-label-group @if ($iziPayStatus == 0) hidden @endif">
+                                        <span class="payment-note v-a-t">{{ trans('plugins/payment::payment.use') }}:</span> <label class="ws-nm inline-display method-name-label">{{ setting('payment_stripe_name') }}</label>
+                                    </div>
+                                </div>
+                                <div class="float-right">
+                                    <a class="btn btn-secondary toggle-payment-item edit-payment-item-btn-trigger @if ($iziPayStatus == 0) hidden @endif">{{ trans('plugins/payment::payment.edit') }}</a>
+                                    <a class="btn btn-secondary toggle-payment-item save-payment-item-btn-trigger @if ($iziPayStatus == 1) hidden @endif">{{ trans('plugins/payment::payment.settings') }}</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="paypal-online-payment payment-content-item hidden">
+                            <td class="border-left" colspan="3">
+                                {!! Form::open() !!}
+                                {!! Form::hidden('type', \Botble\Payment\Enums\PaymentMethodEnum::IZIPAY, ['class' => 'payment_type']) !!}
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <ul>
+                                            <li>
+                                                <label>{{ trans('plugins/payment::payment.configuration_instruction', ['name' => 'IziPay']) }}</label>
+                                            </li>
+                                            <li class="payment-note">
+                                                <p>{{ trans('plugins/payment::payment.configuration_requirement', ['name' => 'IziPay']) }}:</p>
+                                                <ul class="m-md-l" style="list-style-type:decimal">
+                                                    <li style="list-style-type:decimal">
+                                                        <a href="https://www.izipay.pe/tienda-izipay" target="_blank">
+                                                            {{ trans('plugins/payment::payment.service_registration', ['name' => 'IziPay']) }}
+                                                        </a>
+                                                    </li>
+                                                    <li style="list-style-type:decimal">
+                                                        <p>{{ trans('plugins/payment::payment.izi_pay_after_service_registration_msg', ['name' => 'IziPay']) }}</p>
+                                                    </li>
+                                                    <li style="list-style-type:decimal">
+                                                        <p>{{ trans('plugins/payment::payment.stripe_enter_client_id_and_secret') }}</p>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="well bg-white">
+                                            <div class="form-group">
+                                                <label class="text-title-field" for="stripe_name">{{ trans('plugins/payment::payment.method_name') }}</label>
+                                                <input type="text" class="next-input input-name" name="payment_izi_pay_name" id="izi_pay_name" data-counter="400" value="{{ setting('payment_izi_pay_name', trans('plugins/payment::payment.pay_online_via', ['name' => 'IziPay'])) }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="text-title-field" for="payment_izi_pay_description">{{ trans('core/base::forms.description') }}</label>
+                                                <textarea class="next-input" name="payment_izi_pay_description" id="payment_izi_pay_description">{{ get_payment_setting('description', 'izi_pay', __('Payment with IziPay')) }}</textarea>
+                                            </div>
+                                            <p class="payment-note">
+                                                {{ trans('plugins/payment::payment.please_provide_information') }} <a target="_blank" href="https://www.izipay.pe">IziPay</a>:
+                                            </p>
+                                            <div class="form-group">
+                                                <label class="text-title-field" for="izi_pay_url">URL base</label>
+                                                <input type="text" class="next-input" name="payment_izi_pay_url" id="izi_pay_url" value="{{ setting('payment_izi_pay_url') ?? 'https://api.micuentaweb.pe'}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="text-title-field" for="izi_pay_path">Path Payment</label>
+                                                <input type="text" class="next-input" name="payment_izi_pay_path" id="izi_pay_path" value="{{ setting('payment_izi_pay_path') ?? 'api-payment/V4/Charge/CreatePayment'}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="text-title-field" for="izi_pay_user">{{ trans('plugins/payment::payment.user_izi_pay') }}</label>
+                                                <input type="text" class="next-input" name="payment_izi_pay_user" id="izi_pay_user" value="{{ setting('payment_izi_pay_user') ?? '89289758'}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="text-title-field" for="izi_pay_password">{{ trans('plugins/payment::payment.izi_pay_password') }}</label>
+                                                <div class="input-option">
+                                                    <input type="password" class="next-input" placeholder="••••••••" id="izi_pay_password" name="payment_izi_pay_password" value="{{ setting('payment_izi_pay_password') ?? 'testpassword_7vAtvN49E8Ad6e6ihMqIOvOHC6QV5YKmIXgxisMm0V7Eq' }}">
+                                                </div>
+                                            </div>
+                                            {!! apply_filters(PAYMENT_METHOD_SETTINGS_CONTENT, null, 'izi_pay') !!}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 bg-white text-right">
+                                    <button class="btn btn-warning disable-payment-item @if ($iziPayStatus == 0) hidden @endif" type="button">{{ trans('plugins/payment::payment.deactivate') }}</button>
+                                    <button class="btn btn-info save-payment-item btn-text-trigger-save @if ($iziPayStatus == 1) hidden @endif" type="button">{{ trans('plugins/payment::payment.activate') }}</button>
+                                    <button class="btn btn-info save-payment-item btn-text-trigger-update @if ($iziPayStatus == 0) hidden @endif" type="button">{{ trans('plugins/payment::payment.update') }}</button>
+                                </div>
+                                {!! Form::close() !!}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- By Saem, hidden other payment methods -->
+                @if(false)
+                @php $stripeStatus = setting('payment_stripe_status'); @endphp
+                <table class="table payment-method-item">
+                    <tbody>
+                        <tr class="border-pay-row">
                             <td class="border-pay-col"><i class="fa fa-theme-payments"></i></td>
                             <td style="width: 20%;">
                                 <img class="filter-black" src="{{ url('vendor/core/plugins/payment/images/stripe.svg') }}" alt="stripe">
@@ -39,8 +148,8 @@
                                 </ul>
                             </td>
                         </tr>
-                        </tbody>
-                        <tbody class="border-none-t">
+                    </tbody>
+                    <tbody class="border-none-t">
                         <tr class="bg-white">
                             <td colspan="3">
                                 <div class="float-left" style="margin-top: 5px;">
@@ -117,12 +226,12 @@
                                 {!! Form::close() !!}
                             </td>
                         </tr>
-                        </tbody>
-                    </table>
+                    </tbody>
+                </table>
 
-                    @php $payPalStatus = setting('payment_paypal_status'); @endphp
-                    <table class="table payment-method-item">
-                        <tbody>
+                @php $payPalStatus = setting('payment_paypal_status'); @endphp
+                <table class="table payment-method-item">
+                    <tbody>
                         <tr class="border-pay-row">
                             <td class="border-pay-col"><i class="fa fa-theme-payments"></i></td>
                             <td style="width: 20%;">
@@ -137,8 +246,8 @@
                                 </ul>
                             </td>
                         </tr>
-                        </tbody>
-                        <tbody class="border-none-t">
+                    </tbody>
+                    <tbody class="border-none-t">
                         <tr class="bg-white">
                             <td colspan="3">
                                 <div class="float-left" style="margin-top: 5px;">
@@ -206,7 +315,7 @@
                                             {!! Form::hidden('payment_paypal_mode', 1) !!}
                                             <div class="form-group">
                                                 <label class="next-label">
-                                                    <input type="checkbox" class="hrv-checkbox" value="0" name="payment_paypal_mode" @if (setting('payment_paypal_mode') == 0) checked @endif>
+                                                    <input type="checkbox" class="hrv-checkbox" value="0" name="payment_paypal_mode" @if (setting('payment_paypal_mode')==0) checked @endif>
                                                     {{ trans('plugins/payment::payment.sandbox_mode') }}
                                                 </label>
                                             </div>
@@ -223,15 +332,16 @@
                                 {!! Form::close() !!}
                             </td>
                         </tr>
-                        </tbody>
-                    </table>
+                    </tbody>
+                </table>
 
-                    {!! apply_filters(PAYMENT_METHODS_SETTINGS_PAGE, null) !!}
+                {!! apply_filters(PAYMENT_METHODS_SETTINGS_PAGE, null) !!}
 
-                    <div class="table-responsive">
-                     <table class="table payment-method-item">
+                <div class="table-responsive">
+                    <table class="table payment-method-item">
 
-                            <tbody><tr class="border-pay-row">
+                        <tbody>
+                            <tr class="border-pay-row">
                                 <td class="border-pay-col"><i class="fa fa-theme-payments"></i></td>
                                 <td style="width: 20%;">
                                     <span>{{ trans('plugins/payment::payment.payment_methods') }}</span>
@@ -244,10 +354,10 @@
                                     </ul>
                                 </td>
                             </tr>
-                            </tbody>
+                        </tbody>
 
-                            @php $codStatus = setting('payment_cod_status'); @endphp
-                            <tbody class="border-none-t">
+                        @php $codStatus = setting('payment_cod_status'); @endphp
+                        <tbody class="border-none-t">
                             <tr class="bg-white">
                                 <td colspan="3">
                                     <div class="float-left" style="margin-top: 5px;">
@@ -286,10 +396,10 @@
                                     {!! Form::close() !!}
                                 </td>
                             </tr>
-                            </tbody>
+                        </tbody>
 
-                            @php $bankTransferStatus = setting('payment_bank_transfer_status'); @endphp
-                            <tbody class="border-none-t">
+                        @php $bankTransferStatus = setting('payment_bank_transfer_status'); @endphp
+                        <tbody class="border-none-t">
                             <tr class="bg-white">
                                 <td colspan="3">
                                     <div class="float-left" style="margin-top: 5px;">
@@ -328,21 +438,22 @@
                                     {!! Form::close() !!}
                                 </td>
                             </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
+                @endif
             </div>
-            @php do_action(BASE_ACTION_META_BOXES, 'main', new \Botble\Payment\Models\Payment) @endphp
-            <div class="group">
-                <div class="col-md-3">
+        </div>
+        @php do_action(BASE_ACTION_META_BOXES, 'main', new \Botble\Payment\Models\Payment) @endphp
+        <div class="group">
+            <div class="col-md-3">
 
-                </div>
-                <div class="col-md-9">
-                    @php do_action(BASE_ACTION_META_BOXES, 'advanced', new \Botble\Payment\Models\Payment) @endphp
-                </div>
+            </div>
+            <div class="col-md-9">
+                @php do_action(BASE_ACTION_META_BOXES, 'advanced', new \Botble\Payment\Models\Payment) @endphp
             </div>
         </div>
     </div>
-    {!! Form::modalAction('confirm-disable-payment-method-modal', trans('plugins/payment::payment.deactivate_payment_method'), 'info', trans('plugins/payment::payment.deactivate_payment_method_description'), 'confirm-disable-payment-method-button', trans('plugins/payment::payment.agree')) !!}
+</div>
+{!! Form::modalAction('confirm-disable-payment-method-modal', trans('plugins/payment::payment.deactivate_payment_method'), 'info', trans('plugins/payment::payment.deactivate_payment_method_description'), 'confirm-disable-payment-method-button', trans('plugins/payment::payment.agree')) !!}
 @stop

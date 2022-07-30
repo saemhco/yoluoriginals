@@ -88,10 +88,10 @@ abstract class Enum implements JsonSerializable
         }
 
         $result = static::$cache[$class];
-
         if (isset($result['__default']) && !$includeDefault) {
             unset($result['__default']);
         }
+        // var_dump(apply_filters(BASE_FILTER_ENUM_ARRAY, $result, get_called_class()));
 
         return apply_filters(BASE_FILTER_ENUM_ARRAY, $result, get_called_class());
     }
@@ -149,7 +149,8 @@ abstract class Enum implements JsonSerializable
         $result = [];
 
         foreach (static::toArray() as $value) {
-            $result[$value] = static::getLabel($value);
+            if ($value === 'izi_pay') //by saem
+                $result[$value] = static::getLabel($value);
         }
 
         return $result;

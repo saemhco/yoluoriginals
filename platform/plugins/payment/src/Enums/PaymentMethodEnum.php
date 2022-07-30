@@ -18,6 +18,7 @@ class PaymentMethodEnum extends Enum
     public const PAYPAL = 'paypal';
     public const COD = 'cod';
     public const BANK_TRANSFER = 'bank_transfer';
+    public const IZIPAY = 'izi_pay';
 
     /**
      * @var string
