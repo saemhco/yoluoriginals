@@ -27,6 +27,7 @@ use Botble\Payment\Enums\PaymentMethodEnum;
 use Botble\Payment\Http\Requests\PayPalPaymentCallbackRequest;
 use Botble\Payment\Services\Gateways\BankTransferPaymentService;
 use Botble\Payment\Services\Gateways\CodPaymentService;
+use Botble\Payment\Services\Gateways\IziPayPaymentService;
 use Botble\Payment\Services\Gateways\PayPalPaymentService;
 use Botble\Payment\Services\Gateways\StripePaymentService;
 use Botble\Payment\Supports\PaymentHelper;
@@ -181,6 +182,10 @@ class PublicCheckoutController
                 $promotionDiscountAmount,
                 $couponDiscountAmount,
             ] = apply_filters(PROCESS_CHECKOUT_ORDER_DATA_ECOMMERCE, $products, $token, $sessionCheckoutData, $request);
+
+            if (!auth('customer')->check()) {
+                return redirect()->route('customer.login');
+            }
         } else {
 
             $promotionDiscountAmount = $applyPromotionsService->execute($token);
@@ -219,15 +224,21 @@ class PublicCheckoutController
                 }
             }
 
-            $defaultShippingMethod = $request->input('shipping_method',
-                old('shipping_method',
-                    Arr::get($sessionCheckoutData, 'shipping_method', Arr::first(array_keys($shipping)))));
+            $defaultShippingMethod = $request->input(
+                'shipping_method',
+                old(
+                    'shipping_method',
+                    Arr::get($sessionCheckoutData, 'shipping_method', Arr::first(array_keys($shipping)))
+                )
+            );
 
             $defaultShippingOption = null;
             if (!empty($shipping)) {
                 $defaultShippingOption = Arr::first(array_keys(Arr::first($shipping)));
-                $defaultShippingOption = $request->input('shipping_option',
-                    old('shipping_option', Arr::get($sessionCheckoutData, 'shipping_option', $defaultShippingOption)));
+                $defaultShippingOption = $request->input(
+                    'shipping_option',
+                    old('shipping_option', Arr::get($sessionCheckoutData, 'shipping_option', $defaultShippingOption))
+                );
             }
             $shippingAmount = Arr::get($shipping, $defaultShippingMethod . '.' . $defaultShippingOption . '.price', 0);
 
@@ -238,8 +249,10 @@ class PublicCheckoutController
 
             if (session()->has('applied_coupon_code')) {
                 if (!$request->input('applied_coupon')) {
-                    $discount = $applyCouponService->getCouponData(session('applied_coupon_code'),
-                        $sessionCheckoutData);
+                    $discount = $applyCouponService->getCouponData(
+                        session('applied_coupon_code'),
+                        $sessionCheckoutData
+                    );
                     if (empty($discount)) {
                         $removeCouponService->execute();
                     } else {
@@ -308,9 +321,9 @@ class PublicCheckoutController
                     $sessionData['created_account'] = true;
 
                     $this->addressRepository->createOrUpdate($request->input('address') + [
-                            'customer_id' => $customer->id,
-                            'is_default'  => true,
-                        ]);
+                        'customer_id' => $customer->id,
+                        'is_default'  => true,
+                    ]);
                 }
             }
 
@@ -323,8 +336,13 @@ class PublicCheckoutController
         if (is_plugin_active('marketplace')) {
             $products = Cart::instance('cart')->products();
 
-            $sessionData = apply_filters(HANDLE_PROCESS_ORDER_DATA_ECOMMERCE, $products, $token, $sessionData,
-                $request);
+            $sessionData = apply_filters(
+                HANDLE_PROCESS_ORDER_DATA_ECOMMERCE,
+                $products,
+                $token,
+                $sessionData,
+                $request
+            );
 
             OrderHelper::setOrderSessionData($token, $sessionData);
 
@@ -404,21 +422,27 @@ class PublicCheckoutController
                 'address_id' => $address->id,
             ];
         } elseif ((array)$request->input('address', [])) {
-            $addressData = array_merge(['order_id' => $sessionData['created_order_id']],
-                (array)$request->input('address', []));
+            $addressData = array_merge(
+                ['order_id' => $sessionData['created_order_id']],
+                (array)$request->input('address', [])
+            );
         }
 
         if ($addressData && !empty($addressData['name']) && !empty($addressData['phone']) && !empty($addressData['address'])) {
             if (!isset($sessionData['created_order_address'])) {
-                $createdOrderAddress = $this->createOrderAddress($addressData,
-                    Arr::get($addressData, 'created_order_id'));
+                $createdOrderAddress = $this->createOrderAddress(
+                    $addressData,
+                    Arr::get($addressData, 'created_order_id')
+                );
                 if ($createdOrderAddress) {
                     $sessionData['created_order_address'] = true;
                     $sessionData['created_order_address_id'] = $createdOrderAddress->id;
                 }
             } elseif (!empty($sessionData['created_order_id'])) {
-                $this->createOrderAddress($addressData,
-                    $sessionData['created_order_id'] ?: Arr::get($addressData, 'address_id'));
+                $this->createOrderAddress(
+                    $addressData,
+                    $sessionData['created_order_id'] ?: Arr::get($addressData, 'address_id')
+                );
             }
         }
 
@@ -526,8 +550,12 @@ class PublicCheckoutController
 
         if (is_plugin_active('marketplace')) {
             $sessionData = array_merge(OrderHelper::getOrderSessionData($token), $request->input('address'));
-            $sessionData = apply_filters(PROCESS_POST_SAVE_INFORMATION_CHECKOUT_ECOMMERCE, $sessionData, $request,
-                $token);
+            $sessionData = apply_filters(
+                PROCESS_POST_SAVE_INFORMATION_CHECKOUT_ECOMMERCE,
+                $sessionData,
+                $request,
+                $token
+            );
         } else {
             $sessionData = array_merge(OrderHelper::getOrderSessionData($token), $request->input('address'));
             OrderHelper::setOrderSessionData($token, $sessionData);
@@ -589,7 +617,7 @@ class PublicCheckoutController
                 ->setMessage(__('Minimum order amount is :amount, you need to buy more :more to place an order!', [
                     'amount' => format_price(EcommerceHelper::getMinimumOrderAmount()),
                     'more'   => format_price(EcommerceHelper::getMinimumOrderAmount() - Cart::instance('cart')
-                            ->rawSubTotal()),
+                        ->rawSubTotal()),
                 ]));
         }
 
@@ -597,19 +625,18 @@ class PublicCheckoutController
 
         $this->processOrderData($token, $sessionData, $request);
 
-        if (is_plugin_active('marketplace')) {
-            $products = Cart::instance('cart')->products();
+        // if (is_plugin_active('marketplace')) {
+        //     $products = Cart::instance('cart')->products();
 
-            return apply_filters(
-                HANDLE_PROCESS_POST_CHECKOUT_ORDER_DATA_ECOMMERCE,
-                $products,
-                $request,
-                $token,
-                $sessionData,
-                $response
-            );
-        }
-
+        //     return apply_filters(
+        //         HANDLE_PROCESS_POST_CHECKOUT_ORDER_DATA_ECOMMERCE,
+        //         $products,
+        //         $request,
+        //         $token,
+        //         $sessionData,
+        //         $response
+        //     );
+        // }
         $weight = 0;
         foreach (Cart::instance('cart')->content() as $cartItem) {
             $product = $this->productRepository->findById($cartItem->id);
@@ -627,9 +654,9 @@ class PublicCheckoutController
 
         $shippingAmount = 0;
 
-        if ($request->has('shipping_method') && !get_shipping_setting('free_ship',
-                $request->input('shipping_method'))) {
-
+        if ($request->has('shipping_method') && !get_shipping_setting(
+            'free_ship'
+        )) {
             $shippingData = [
                 'address'     => Arr::get($sessionData, 'address'),
                 'country'     => Arr::get($sessionData, 'country'),
@@ -639,8 +666,11 @@ class PublicCheckoutController
                 'order_total' => Cart::instance('cart')->rawTotal() - $promotionDiscountAmount - $couponDiscountAmount,
             ];
 
-            $shippingMethod = $shippingFeeService->execute($shippingData, $request->input('shipping_method'),
-                $request->input('shipping_option'));
+            $shippingMethod = $shippingFeeService->execute(
+                $shippingData,
+                $request->input('shipping_method'),
+                $request->input('shipping_option')
+            );
 
             $shippingAmount = Arr::get(Arr::first($shippingMethod), 'price', 0);
         }
@@ -743,6 +773,8 @@ class PublicCheckoutController
                     ->decrement('quantity', $cartItem->qty);
             }
 
+
+
             $request->merge([
                 'order_id' => $order->id,
             ]);
@@ -759,6 +791,33 @@ class PublicCheckoutController
             $request->merge(['amount' => $paymentData['amount']]);
 
             switch ($request->input('payment_method')) {
+                case PaymentMethodEnum::IZIPAY:
+                    $request->merge([
+                        'pan' => str_replace(" ", "", $request->input('card')['number']),
+                        'expiryMonth' => explode(" / ", $request->input('card')['date'])[0],
+                        'expiryYear' => '20' . explode(" / ", $request->input('card')['date'])[1],
+                        'securityCode' => $request->input('card')['cvv'],
+                        'name' => mb_strtoupper($request->input('card')['full_name'], 'UTF-8'),
+                        'email' => $request->input('address')['email'] ?? auth('customer')->user()->email,
+                    ]);
+                    $iziPayPalService = new IzipayPaymentService($request);
+                    $result = $iziPayPalService->execute();
+
+                    if ($iziPayPalService->getErrorMessage()) {
+                        $paymentData['error'] = true;
+                        $paymentData['message'] = $iziPayPalService->getErrorMessage();
+                    }
+                    $paymentData['charge_id'] = $result;
+                    break;
+
+                case PaymentMethodEnum::STRIPE:
+                    $result = $stripePaymentService->execute($request);
+                    if ($stripePaymentService->getErrorMessage()) {
+                        $paymentData['error'] = true;
+                        $paymentData['message'] = $stripePaymentService->getErrorMessage();
+                    }
+                    $paymentData['charge_id'] = $result;
+                    break;
                 case PaymentMethodEnum::STRIPE:
                     $result = $stripePaymentService->execute($request);
                     if ($stripePaymentService->getErrorMessage()) {
@@ -1158,15 +1217,21 @@ class PublicCheckoutController
             }
         }
 
-        $defaultShippingMethod = $request->input('shipping_method',
-            old('shipping_method',
-                Arr::get($sessionCheckoutData, 'shipping_method', Arr::first(array_keys($shipping)))));
+        $defaultShippingMethod = $request->input(
+            'shipping_method',
+            old(
+                'shipping_method',
+                Arr::get($sessionCheckoutData, 'shipping_method', Arr::first(array_keys($shipping)))
+            )
+        );
 
         $defaultShippingOption = null;
         if (!empty($shipping)) {
             $defaultShippingOption = Arr::first(array_keys(Arr::first($shipping)));
-            $defaultShippingOption = $request->input('shipping_option',
-                old('shipping_option', Arr::get($sessionCheckoutData, 'shipping_option') ?? $defaultShippingOption));
+            $defaultShippingOption = $request->input(
+                'shipping_option',
+                old('shipping_option', Arr::get($sessionCheckoutData, 'shipping_option') ?? $defaultShippingOption)
+            );
         }
         $shippingAmount = Arr::get($shipping, $defaultShippingMethod . '.' . $defaultShippingOption . '.price', 0);
 
