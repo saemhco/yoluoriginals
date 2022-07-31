@@ -1,10 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
-
 Route::group(['namespace' => 'Botble\Payment\Http\Controllers', 'middleware' => ['web', 'core']], function () {
     Route::group(['prefix' => 'payments'], function () {
         Route::post('checkout', 'PaymentController@postCheckout')->name('payments.checkout');
@@ -67,14 +62,4 @@ Route::group(['namespace' => 'Botble\Payment\Http\Controllers', 'middleware' => 
         });
 
     });
-});
-
-Route::get("buscar_ubigeo_reniec",function(Request $r){
-    $search = $r->search;
-     $q = \App\Models\Ubigeo::select( 'cod_ubigeo_reniec as id', DB::raw("CONCAT(desc_ubigeo_reniec,' - ', desc_prov_reniec,' - ', desc_dep_reniec) AS text"))
-     ->where("cod_ubigeo_reniec","<>","NA")
-     ->where(DB::raw("CONCAT(desc_ubigeo_reniec,' - ', desc_prov_reniec,' - ', desc_dep_reniec)"),"like","%$search%")
-      ->get();
-    
-     return response()->json($q);
 });
