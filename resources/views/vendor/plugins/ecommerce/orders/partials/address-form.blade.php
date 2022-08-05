@@ -87,24 +87,29 @@
                 </div>
             </div>
         </div>
+        
         <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="domicilio"> Domicilio : <span class="text-danger">*</span> </label>
-                    <input type="text" class="form-control required" value="" id="domicilio" name="domicilio" required>
-                </div>
-            </div>
-            <div class="col-md-6">
+            <div class="col-12" >
                 <div class="form-group">
                     <label for="ubigeo_domicilio"> Lugar de Envío : <span class="text-danger">*</span> </label>
                     <!-- <input type="text" class="form-control required" value="" id="ubigeo_domicilio" name="ubigeo_domicilio">  -->
-                    <select class="form-control select_2 required" id="ubigeo_domicilio" name="ubigeo_domicilio" required></select>
+                    <select style="width: 589px" class="form-control-lg select_2 required" id="ubigeo_domicilio" name="ubigeo_domicilio" required></select>
                     <div class="invalid-feedback">
                         Seleccione su lugar de domicilio
                     </div>
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group @if ($errors->has('address.address')) has-error @endif">
+                    <input id="address_address" type="text" class="form-control address-control-item address-control-item-required checkout-input" placeholder="{{ __('Domicilio') }}" name="address[address]" value="{{ old('address.address', Arr::get($sessionCheckoutData, 'address')) }}">
+                    {!! Form::error('address.address', $errors) !!}
+                </div>
+            </div>
+             
+        </div>
+    </div>
         {{--
         <div class="row">
             @if (count(EcommerceHelper::getAvailableCountries()) > 1)
