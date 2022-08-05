@@ -55,11 +55,11 @@ class HookServiceProvider extends ServiceProvider
             add_filter(DASHBOARD_FILTER_ADMIN_LIST, function ($widgets) {
                 foreach ($widgets as $key => $widget) {
                     if (in_array($key, [
-                            'widget_total_themes',
-                            'widget_total_users',
-                            'widget_total_plugins',
-                            'widget_total_pages',
-                        ]) && $widget['type'] == 'stats') {
+                        'widget_total_themes',
+                        'widget_total_users',
+                        'widget_total_plugins',
+                        'widget_total_pages',
+                    ]) && $widget['type'] == 'stats') {
                         Arr::forget($widgets, $key);
                     }
                 }
@@ -134,7 +134,7 @@ class HookServiceProvider extends ServiceProvider
                     }
 
                     return $html . Form::hidden('customer_id', auth('customer')->id())
-                            ->toHtml() . Form::hidden('customer_type', Customer::class)->toHtml();
+                        ->toHtml() . Form::hidden('customer_type', Customer::class)->toHtml();
                 }, 123);
             }
 
@@ -357,7 +357,8 @@ class HookServiceProvider extends ServiceProvider
      */
     public function getPendingOrders($number, $menuId)
     {
-        if (Auth::user()->hasPermission('orders.index') &&
+        if (
+            Auth::user()->hasPermission('orders.index') &&
             in_array($menuId, ['cms-plugins-ecommerce', 'cms-plugins-ecommerce-order'])
         ) {
             $attributes = [
@@ -375,7 +376,7 @@ class HookServiceProvider extends ServiceProvider
      * @param array $data
      * @return array
      */
-    public function getMenuItemCount(array $data = []) : array
+    public function getMenuItemCount(array $data = []): array
     {
         if (Auth::check() && Auth::user()->hasPermission('orders.index')) {
             $data[] = [
