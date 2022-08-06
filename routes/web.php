@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShopTopController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,3 +12,5 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+route::get('/show',[ShopTopController::class, 'show_date']);
+route::get('/depa',[ShopTopController::class, 'dep_date']);

@@ -150,6 +150,11 @@ Route::group(['namespace' => 'Botble\Ecommerce\Http\Controllers', 'middleware' =
                 'uses'       => 'ReportController@getRecentOrders',
                 'permission' => 'ecommerce.report.index',
             ]);
+            Route::post('recent-filters', [
+                'as'         => 'ecommerce.report.recent-filters',
+                'uses'       => 'ReportController@getRecentOrders',
+                'permission' => 'ecommerce.report.index',
+            ]);
 
             Route::get('dashboard-general-report', [
                 'as'         => 'ecommerce.report.dashboard-widget.general',
