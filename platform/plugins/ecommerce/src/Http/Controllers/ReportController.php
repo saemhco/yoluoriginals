@@ -13,6 +13,7 @@ use Botble\Ecommerce\Repositories\Interfaces\ProductInterface;
 use EcommerceHelper;
 use Botble\Ecommerce\Tables\Reports\RecentOrdersTable;
 use Botble\Ecommerce\Tables\Reports\TopSellingProductsTable;
+use Botble\Ecommerce\Tables\Reports\RecentFilterTable;
 use Botble\Payment\Enums\PaymentStatusEnum;
 use Carbon\CarbonPeriod;
 use Exception;
@@ -218,6 +219,23 @@ class ReportController extends BaseController
     public function getRecentOrders(RecentOrdersTable $recentOrdersTable)
     {
         return $recentOrdersTable->renderTable();
+    }
+    public function getRecentFilters()
+    {
+
+        $topshop=DB::table('ec_customer_addresses')->select('ubigeo')->where('ubigeo','=',01)->get();
+         $a=count($topshop);
+
+        $shopone=DB::table('ec_customer_addresses')->select('ubigeo')->where('ubigeo','=',02)->get();
+        $b=count($shopone);
+         
+        $top=max($b,$a); 
+        return response()->json([
+
+            'cantidad'=>$top
+
+
+        ]);
     }
 
     /**

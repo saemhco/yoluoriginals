@@ -26,7 +26,7 @@
 
                 <!---------------------- RENDER PRODUCTS IN HERE ---------------- -->
                 {!! apply_filters(RENDER_PRODUCTS_IN_CHECKOUT_PAGE, $products) !!}
-
+                
                 <div class="mt-2 p-2">
                     <div class="row">
                         <div class="col-6">
@@ -66,6 +66,7 @@
                         </div>
                     </div>
                     @endif
+                    
                     @if (!empty($shipping))
                     <div class="row">
                         <div class="col-6">
