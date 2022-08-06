@@ -194,13 +194,17 @@ class PaymentController extends Controller
 
             case PaymentMethodEnum::COD:
                 $chargeId = $this->codPaymentService->execute($request);
-                return redirect()->to($returnUrl . '?charge_id=' . $chargeId)->with('success_msg',
-                    trans('plugins/payment::payment.payment_pending'));
+                return redirect()->to($returnUrl . '?charge_id=' . $chargeId)->with(
+                    'success_msg',
+                    trans('plugins/payment::payment.payment_pending')
+                );
 
             case PaymentMethodEnum::BANK_TRANSFER:
                 $chargeId = $this->bankTransferPaymentService->execute($request);
-                return redirect()->to($returnUrl . '?charge_id=' . $chargeId)->with('success_msg',
-                    trans('plugins/payment::payment.payment_pending'));
+                return redirect()->to($returnUrl . '?charge_id=' . $chargeId)->with(
+                    'success_msg',
+                    trans('plugins/payment::payment.payment_pending')
+                );
 
             default:
                 $data = apply_filters(PAYMENT_FILTER_AFTER_POST_CHECKOUT, $data, $request);

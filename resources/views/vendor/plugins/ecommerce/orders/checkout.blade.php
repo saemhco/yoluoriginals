@@ -18,8 +18,8 @@
             </div>
             <div id="cart-item" class="position-relative">
 
-                <div class="payment-info-loading" style="display: none;">
-                    <div class="payment-info-loading-content">
+                <div class="payment-info-loading-" style="display: none;">
+                    <div class="payment-info-loading-content-">
                         <i class="fas fa-spinner fa-spin"></i>
                     </div>
                 </div>
@@ -152,8 +152,8 @@
                     @endif
 
                     <div class="position-relative">
-                        <div class="payment-info-loading" style="display: none;">
-                            <div class="payment-info-loading-content">
+                        <div class="payment-info-loading-" style="display: none;">
+                            <div class="payment-info-loading-content-">
                                 <i class="fas fa-spinner fa-spin"></i>
                             </div>
                         </div>
@@ -400,6 +400,7 @@
             return true;
 
         });
+
     });
 </script>
 @stop

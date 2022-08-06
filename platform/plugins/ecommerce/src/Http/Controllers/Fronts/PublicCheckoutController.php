@@ -302,6 +302,7 @@ class PublicCheckoutController
                     'password_confirmation' => 'required|same:password',
                     'address.email'         => 'required|max:60|min:6|email|unique:ec_customers,email',
                     'address.name'          => 'required|min:3|max:120',
+                    'addres.ubigeo'        => 'required|string|min:6|max:6',
                 ]);
 
                 if (!$validator->fails()) {
@@ -311,6 +312,7 @@ class PublicCheckoutController
                         'email'    => $request->input('address.email'),
                         'phone'    => $request->input('address.phone'),
                         'password' => bcrypt($request->input('password')),
+                        'ubigeo'    => $request->input('address.ubigeo'),
                     ]);
 
                     auth('customer')->attempt([
@@ -420,6 +422,7 @@ class PublicCheckoutController
                 'zip_code'   => $address->zip_code,
                 'order_id'   => $sessionData['created_order_id'],
                 'address_id' => $address->id,
+                'ubigeo'     => $address->ubigeo,
             ];
         } elseif ((array)$request->input('address', [])) {
             $addressData = array_merge(
@@ -663,6 +666,7 @@ class PublicCheckoutController
                 'state'       => Arr::get($sessionData, 'state'),
                 'city'        => Arr::get($sessionData, 'city'),
                 'weight'      => $weight,
+                //'ubigeo'      => Arr::get($sessionData, 'city'),
                 'order_total' => Cart::instance('cart')->rawTotal() - $promotionDiscountAmount - $couponDiscountAmount,
             ];
 
@@ -772,8 +776,6 @@ class PublicCheckoutController
                     ->where('quantity', '>=', $cartItem->qty)
                     ->decrement('quantity', $cartItem->qty);
             }
-
-
 
             $request->merge([
                 'order_id' => $order->id,
