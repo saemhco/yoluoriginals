@@ -32,4 +32,17 @@ class Ubigeo extends Model
 ];
 	public $timestamps = False;
 
+	protected $appends = ['all_description'];
+
+	public function scopeFilterCode($query, $code)
+    {
+        return $query->where('cod_ubigeo_reniec', $code);
+    }
+
+	public function getAllDescriptionAttribute()
+    {
+        return  $this->desc_ubigeo_reniec . ' - ' . $this->desc_prov_reniec . ' - ' . $this->desc_dep_reniec;
+    }
+
+
 }

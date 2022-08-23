@@ -23,7 +23,6 @@
                 <input id="phone" type="text" class="form-control" name="phone" value="{{ $address->phone }}">
                 {!! Form::error('phone', $errors) !!}
             </div>
-
             @if (count(EcommerceHelper::getAvailableCountries()) > 1)
                 <div class="form-group @if ($errors->has('country')) has-error @endif">
                     <label for="country">{{ __('Country') }}:</label>
@@ -37,7 +36,13 @@
             @else
                 <input type="hidden" name="country" value="{{ Arr::first(array_keys(EcommerceHelper::getAvailableCountries())) }}">
             @endif
-
+            
+            <div class="form-group @if ($errors->has('ubigeo')) has-error @endif">
+                <label for="ubigeo">{{ __('Ubigeo') }}:</label>
+                <input id="ubigeo" type="text" class="form-control" name="ubigeo" value="{{ $address->ubigeo }}">
+                {!! Form::error('ubigeo', $errors) !!}
+            </div>
+            
             <div class="form-group @if ($errors->has('state')) has-error @endif">
                 <label for="state">{{ __('State') }}:</label>
                 <input id="state" type="text" class="form-control" name="state" value="{{ $address->state }}">

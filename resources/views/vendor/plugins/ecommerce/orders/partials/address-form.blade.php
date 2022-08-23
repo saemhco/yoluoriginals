@@ -15,13 +15,14 @@
         @if ($isAvailableAddress)
         <label class="control-label" for="address_id">{{ __('Select available addresses') }}:</label>
         @endif
-
+        {{ $addresses }}
         <div class="list-customer-address" @if (!$isAvailableAddress) style="display: none;" @endif>
             <div class="select--arrow">
                 <select name="address[address_id]" class="form-control address-control-item" id="address_id">
                     <option value="new" @if (old('address.address_id', $sessionAddressId)=='new' ) selected @endif>{{ __('Add new address...') }}</option>
                     @if ($isAvailableAddress)
                     @foreach ($addresses as $address)
+ 
                     <option value="{{ $address->id }}" @if ( ($address->is_default && !$sessionAddressId) ||
                         ($sessionAddressId == $address->id) ||
                         (!old('address.address_id', $sessionAddressId) && $loop->first)
@@ -29,7 +30,7 @@
                         selected="selected"
                         @endif
                         >
-                        {{ $address->address }}, {{ $address->city }}, {{ $address->state }}@if (count(EcommerceHelper::getAvailableCountries()) > 1), {{ $address->country_name }} @endif @if (EcommerceHelper::isZipCodeEnabled() && $address->zip_code), {{ $address->zip_code }} @endif
+                        {{ $address->address }}, {{ $address->full_ubigeo }}@if (count(EcommerceHelper::getAvailableCountries()) > 1), {{ $address->country_name }} @endif @if (EcommerceHelper::isZipCodeEnabled() && $address->zip_code), {{ $address->zip_code }} @endif
                     </option>
                     @endforeach
                     @endif

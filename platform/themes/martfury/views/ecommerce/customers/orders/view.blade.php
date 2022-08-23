@@ -81,13 +81,17 @@
                         class="order-detail-value"> {{ $order->address->address }} </span>
                 </div>
 
-                <div class="col-12">
+                {{-- <div class="col-12">
                     <span>{{ __('City') }}:</span> <span
                         class="order-detail-value">{{ $order->address->city }} </span>
                 </div>
                 <div class="col-12">
                     <span>{{ __('State') }}:</span> <span
                         class="order-detail-value"> {{ $order->address->state }} </span>
+                </div> --}}
+                <div class="col-12">
+                    <span>{{ __('Ubigeo') }}:</span> <span
+                        class="order-detail-value"> {{ $order->address->full_ubigeo }} </span>
                 </div>
                 <br>
                 <h5>{{ __('Order detail') }}</h5>

@@ -14,6 +14,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use OrderHelper;
+use App\Models\Ubigeo;
+use Illuminate\Support\Facades\DB;
 
 class Order extends BaseModel
 {
@@ -98,14 +100,19 @@ class Order extends BaseModel
     {
         return $this->hasOne(OrderAddress::class, 'order_id')->withDefault();
     }
+  
+    
 
     /**
      * @return string
      */
     public function getFullAddressAttribute()
     {
-        return $this->address->address . ', ' . $this->address->city . ', ' . $this->address->state . ', ' . $this->address->country_name . (EcommerceHelper::isZipCodeEnabled() ? ', ' . $this->address->zip_code : '');
+        //$ubigeo= Ubigeo::FilterCode($this->address->ubigeo)->first()? Ubigeo::FilterCode($this->address->ubigeo)->first()->all_description: null;
+        //return $this->address->address . ', ' . $this->address->city . ', ' . $this->address->country_name . (EcommerceHelper::isZipCodeEnabled() ? ', ' . $this->address->zip_code : '');
+        return $this->address->address . ', ' . $this->address->full_ubigeo . ', ' . $this->address->country_name . (EcommerceHelper::isZipCodeEnabled() ? ', ' . $this->address->zip_code : '');
     }
+
 
     /**
      * @return HasMany

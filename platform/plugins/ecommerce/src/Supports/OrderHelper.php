@@ -441,6 +441,7 @@ class OrderHelper
                 'state'    => $address->state,
                 'city'     => $address->city,
                 'address'  => $address->address,
+                'ubigeo'   => $address->ubigeo,
                 'zip_code' => $address->zip_code,
                 'order_id' => Arr::get($sessionData, 'created_order_id', 0),
             ];
@@ -455,6 +456,7 @@ class OrderHelper
                 'country'  => Arr::get($sessionData, 'country'),
                 'state'    => Arr::get($sessionData, 'state'),
                 'city'     => Arr::get($sessionData, 'city'),
+                'ubigeo'   => Arr::get($sessionData, 'ubigeo'),
                 'address'  => Arr::get($sessionData, 'address'),
                 'zip_code' => Arr::get($sessionData, 'zip_code'),
                 'order_id' => Arr::get($sessionData, 'created_order_id', 0),
@@ -497,6 +499,7 @@ class OrderHelper
             'phone'   => 'required|numeric',
             'state'   => 'required|max:120',
             'city'    => 'required|max:120',
+            'ubigeo'    => 'required|string|max:120',
             'address' => 'required|max:120',
         ];
 

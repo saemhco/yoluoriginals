@@ -2,6 +2,7 @@
 
 namespace Botble\Marketplace\Providers;
 
+use App\Models\Ubigeo;
 use Botble\Base\Http\Responses\BaseHttpResponse;
 use Botble\Ecommerce\Enums\OrderStatusEnum;
 use Botble\Ecommerce\Enums\ShippingMethodEnum;
@@ -694,6 +695,7 @@ class OrderSupportServiceProvider extends ServiceProvider
     public function setEmailVendorVariables(OrderModel $order)
     {
         $customerAddress = $order->full_address;
+       
         return EmailHandler::setModule(MARKETPLACE_MODULE_SCREEN_NAME)
             ->setVariableValues([
                 'customer_name'    => $order->user->name ?: $order->address->name,

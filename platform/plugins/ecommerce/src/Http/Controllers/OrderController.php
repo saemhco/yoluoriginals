@@ -257,6 +257,7 @@ class OrderController extends BaseController
                     'zip_code' => $request->input('customer_address.zip_code'),
                     'country'  => $request->input('customer_address.country'),
                     'address'  => $request->input('customer_address.address'),
+                    'ubigeo'   => $request->input('customer_address.ubigeo'),
                     'order_id' => $order->id,
                 ]);
             } elseif ($request->input('customer_id')) {
@@ -505,6 +506,7 @@ class OrderController extends BaseController
             'country'     => $order->address->country,
             'state'       => $order->address->state,
             'city'        => $order->address->city,
+            'ubigeo'      =>$order->address->full_ubigeo,
             'weight'      => $weight,
             'order_total' => $order->amount,
         ];

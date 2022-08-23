@@ -2,6 +2,7 @@
 
 namespace Botble\Ecommerce\Models;
 
+use App\Models\Ubigeo;
 use Botble\Base\Models\BaseModel;
 use Botble\Base\Supports\Avatar;
 use Botble\Base\Supports\Helper;
@@ -29,6 +30,7 @@ class OrderAddress extends BaseModel
         'address',
         'zip_code',
         'order_id',
+        'ubigeo',
     ];
 
     /**
@@ -36,6 +38,7 @@ class OrderAddress extends BaseModel
      */
     public $timestamps = false;
 
+    protected $appends=['full_ubigeo'];
     /**
      * @return string
      */
@@ -44,6 +47,10 @@ class OrderAddress extends BaseModel
         return Helper::getCountryNameByCode($this->country);
     }
 
+    public function getFullUbigeoAttribute(){
+        $ubigeo= Ubigeo::FilterCode($this->ubigeo)->first()? Ubigeo::FilterCode($this->ubigeo)->first()->all_description: null;
+        return $ubigeo;
+    }
     /**
      * @return string
      */

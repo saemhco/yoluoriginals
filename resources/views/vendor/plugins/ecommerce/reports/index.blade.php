@@ -44,10 +44,14 @@
                     </div>
                 </div>
             </div>
-
+        
+        </div>
+        <div class="row mt-15">
             <div class="col-lg-5">
                 <div class="rp-card bg-white h-100">
                     <div class="rp-card-header">
+                        
+               <h5 class="p-2">Ventas por Departamento</h5>
                           </div>
                     <div class="table-responsive">
                         <table id="zero_config" class="table table-striped table-bordered">
