@@ -334,6 +334,7 @@ class PublicController extends Controller
      */
     public function getCreateAddress()
     {
+        
         SeoHelper::setTitle(__('Create Address'));
 
         Theme::breadcrumb()

@@ -92,7 +92,7 @@
                 <div class="form-group">
                     <label for="address_ubigeo"> Lugar de Envío : <span class="text-danger">*</span> </label>
                     <!-- <input type="text" class="form-control required" value="" id="address_ubigeo" name="address_ubigeo">  -->
-                    <select style="width: 589px" class="form-control-lg select_2 required checkout-input" id="address_ubigeo" name="address[ubigeo]" @if (!(auth('customer')->check() && $isAvailableAddress && (!empty($sessionAddressId) && $sessionAddressId !== 'new' || empty(Arr::get($sessionCheckoutData, 'state')))))
+                    <select style="width: 589px" class="form-control-lg select_2 required checkout-input" id="address_ubigeo" name="address[ubigeo]" @if (!(auth('customer')->check() && $isAvailableAddress && (!empty($sessionAddressId) && $sessionAddressId !== 'new' || empty(Arr::get($sessionCheckoutData, 'ubigeo')))))
                         required
                         @endif
                         ></select>
