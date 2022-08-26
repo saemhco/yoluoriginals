@@ -46,8 +46,8 @@
             </div>
         
         </div>
-        <div class="row mt-15">
-            <div class="col-lg-5">
+        <div class="card p-4 mt-4 ml-4 mr-5">
+            <div class="container">
                 <div class="rp-card bg-white h-100">
                     <div class="rp-card-header">
                         
@@ -55,7 +55,7 @@
                           </div>
                     <div class="table-responsive">
                         <table id="zero_config" class="table table-striped table-bordered">
-                            <thead class="text-white" style="background-color:#1e94c2;">
+                            <thead class="text-white" style="background-color:#080a0a;">
                                 <tr>
                                     
                                     <th>N°</th>

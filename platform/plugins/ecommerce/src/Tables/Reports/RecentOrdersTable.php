@@ -75,6 +75,9 @@ class RecentOrdersTable extends TableAbstract
             ->editColumn('user_id', function ($item) {
                 return $item->user->name ?? $item->address->name;
             })
+            ->editColumn('ubigeo', function ($item) {
+                return  $item->address->full_ubigeo;
+            })
             ->editColumn('created_at', function ($item) {
                 return BaseHelper::formatDate($item->created_at);
             });
@@ -149,10 +152,15 @@ class RecentOrdersTable extends TableAbstract
                 'class'     => 'text-center',
                 'orderable' => false,
             ],
+            'ubigeo'         => [
+                'title'     => trans('Ubigeo'),
+                'class'     => 'text-center',
+                'orderable' => false,
+            ],
             'created_at'     => [
                 'title'     => trans('core/base::tables.created_at'),
                 'width'     => '100px',
-                'class'     => 'text-left',
+                'class'     => 'text-center',
                 'orderable' => false,
             ],
         ];
