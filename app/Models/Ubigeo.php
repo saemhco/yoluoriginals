@@ -32,6 +32,10 @@ class Ubigeo extends Model
 ];
 	public $timestamps = False;
 
+	protected $casts = [
+        'id' => 'string',
+    ];
+
 	protected $appends = ['all_description'];
 
 	public function scopeFilterCode($query, $code)
