@@ -70,9 +70,13 @@ class OrderTable extends TableAbstract
             ->editColumn('user_id', function ($item) {
                 return $item->user->name ?? $item->address->name;
             })
+            ->editColumn('ubigeo', function ($item) {
+                return  $item->address->full_ubigeo;
+            })
             ->editColumn('created_at', function ($item) {
                 return BaseHelper::formatDate($item->created_at);
             });
+            
 
         if (EcommerceHelper::isTaxEnabled()) {
             $data = $data->editColumn('tax_amount', function ($item) {
@@ -155,6 +159,10 @@ class OrderTable extends TableAbstract
             ],
             'status'          => [
                 'title' => trans('core/base::tables.status'),
+                'class' => 'text-center',
+            ],
+            'ubigeo'          => [
+                'title' => trans('Ubigeo'),
                 'class' => 'text-center',
             ],
             'created_at'      => [

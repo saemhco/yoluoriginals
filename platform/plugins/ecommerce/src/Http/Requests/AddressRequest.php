@@ -24,6 +24,7 @@ class AddressRequest extends Request
             'state'      => 'required|max:120',
             'city'       => 'required|max:120',
             'address'    => 'required|max:120',
+            'ubigeo'    => 'required|string|max:200',
             'is_default' => 'integer|min:0|max:1',
         ];
 

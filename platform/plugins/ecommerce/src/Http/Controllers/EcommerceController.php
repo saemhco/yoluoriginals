@@ -108,6 +108,7 @@ class EcommerceController extends BaseController
         $primaryStore->phone = $request->input('store_phone');
         $primaryStore->email = $primaryStore->email ?? get_admin_email()->first();
         $primaryStore->address = $request->input('store_address');
+        $primaryStore->ubigeo = $request->input('store_ubigeo');
         $primaryStore->country = $request->input('store_country');
         $primaryStore->state = $request->input('store_state');
         $primaryStore->city = $request->input('store_city');
@@ -173,6 +174,7 @@ class EcommerceController extends BaseController
                 ->set([
                     $prefix . 'store_phone'   => $locator->phone,
                     $prefix . 'store_address' => $locator->address,
+                    $prefix . 'store_ubigeo'  => $locator->ubigeo,
                     $prefix . 'store_country' => $locator->country,
                     $prefix . 'store_state'   => $locator->state,
                     $prefix . 'store_city'    => $locator->city,

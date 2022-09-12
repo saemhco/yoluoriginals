@@ -66,11 +66,14 @@
                             <span>{{ __('Address') }}:</span> <strong>{{ $order->address->address }}</strong>
                         </p>
 
-                        <p>
+                        {{-- <p>
                             <span>{{ __('City') }}:</span> <strong>{{ $order->address->city }} </strong>
                         </p>
                         <p>
                             <span>{{ __('State') }}:</span> <strong> {{ $order->address->state }} </strong>
+                        </p> --}}
+                        <p>
+                            <span>{{ __('Ubigeo') }}:</span> <strong> {{ $order->address->full_ubigeo }} </strong>
                         </p>
                         @if (count(EcommerceHelper::getAvailableCountries()) > 1)
                             <p>

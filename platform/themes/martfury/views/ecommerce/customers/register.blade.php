@@ -64,12 +64,12 @@
                             </label>
                         </p>
                         <p>
-                            <label>
+                            {{-- <label>
                                 <input type="radio" name="is_vendor" value="1" @if (old('is_vendor') == 1) checked="checked" @endif>
                                 <span class="d-inline-block">
                                     {{ __('I am a vendor') }}
                                 </span>
-                            </label>
+                            </label> --}}
                         </p>
                     </div>
                 @endif

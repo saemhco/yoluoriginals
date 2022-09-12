@@ -33,7 +33,7 @@
                 <span>{{ __('Order status') }}:</span> <span
                     class="order-detail-value">{{ $order->status->label() }}</span>
             </div>
-
+            <div><h1>sadad</h1></div>
             <div class="col-md-12">
                 <span>{{ __('Payment method') }}:</span> <span
                     class="order-detail-value"> {{ $order->payment->payment_channel->label() }} </span>
@@ -81,10 +81,12 @@
             </div>
 
             <div class="col-md-12">
-                <span>{{ __('City') }}:</span> <span
+                {{-- <span>{{ __('City') }}:</span> <span
                     class="order-detail-value">{{ $order->address->city }} </span>
                 <span>{{ __('State') }}:</span> <span
-                    class="order-detail-value"> {{ $order->address->state }} </span>
+                    class="order-detail-value"> {{ $order->address->state }} </span> --}}
+                <span>{{ __('Ubigeo') }}:</span> <span
+                    class="order-detail-value"> {{ $order->address->full_ubigeo }} </span>
                 <span>{{ __('Country') }}:</span> <span
                     class="order-detail-value"> {{ $order->address->country_name }} </span>
             </div>

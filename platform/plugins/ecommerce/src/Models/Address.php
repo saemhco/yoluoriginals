@@ -2,6 +2,7 @@
 
 namespace Botble\Ecommerce\Models;
 
+use App\Models\Ubigeo;
 use Botble\Base\Models\BaseModel;
 use Botble\Base\Supports\Helper;
 
@@ -37,6 +38,7 @@ class Address extends BaseModel
         'created_at',
         'updated_at',
     ];
+    protected $appends=['full_ubigeo'];
 
     /**
      * @return string
@@ -44,5 +46,9 @@ class Address extends BaseModel
     public function getCountryNameAttribute()
     {
         return Helper::getCountryNameByCode($this->country);
+    }
+    public function getFullUbigeoAttribute(){
+        $ubigeo= Ubigeo::FilterCode($this->ubigeo)->first()? Ubigeo::FilterCode($this->ubigeo)->first()->all_description: null;
+        return $ubigeo;
     }
 }

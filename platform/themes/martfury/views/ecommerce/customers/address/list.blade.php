@@ -27,7 +27,7 @@
                     @foreach($addresses as $address)
                         <tr>
                             <td style="white-space: inherit;">
-                                <p>{{ $address->name }}, {{ $address->address }}, {{ $address->city }}, {{ $address->state }}@if (count(EcommerceHelper::getAvailableCountries()) > 1), {{ $address->country_name }} @endif @if (EcommerceHelper::isZipCodeEnabled()), {{ $address->zip_code }} @endif - {{ $address->phone }}</p>
+                                <p>{{ $address->name }}, {{ $address->address }}, {{ $address->full_ubigeo}}@if (count(EcommerceHelper::getAvailableCountries()) > 1), {{ $address->country_name }} @endif @if (EcommerceHelper::isZipCodeEnabled()), {{ $address->zip_code }} @endif - {{ $address->phone }}</p>
                             </td>
                             <td style="width: 120px;">
                                 @if ($address->is_default) {{ __('Yes') }} @else {{ __('No') }} @endif

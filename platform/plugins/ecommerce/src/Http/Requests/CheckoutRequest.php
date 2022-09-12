@@ -31,6 +31,7 @@ class CheckoutRequest extends Request
             $rules['address.state'] = 'required';
             $rules['address.city'] = 'required';
             $rules['address.address'] = 'required|string';
+            $rules['address.ubigeo'] = 'required|string';
         }
 
         if ($this->input('create_account') == 1) {
@@ -38,6 +39,8 @@ class CheckoutRequest extends Request
             $rules['password_confirmation'] = 'required|same:password';
             $rules['address.email'] = 'required|max:60|min:6|email|unique:ec_customers,email';
             $rules['address.name'] = 'required|min:3|max:120';
+            //$rules['address.ubigeo'] = 'required|string';
+
         }
 
         $rules = apply_filters(PROCESS_CHECOUT_RULES_REQUEST_ECOMMERCE, $rules);

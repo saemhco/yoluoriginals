@@ -168,8 +168,9 @@
                                 </div>
                                 <div>
                                     <div>{{ $order->address->address }}</div>
-                                    <div>{{ $order->address->city }}</div>
-                                    <div>{{ $order->address->state }}</div>
+                                    <div>{{ $order->address->full_ubigeo }}</div>
+                                    {{-- <div>{{ $order->address->city }}</div>
+                                    <div>{{ $order->address->state }}</div> --}}
                                     <div>{{ $order->address->country_name }}</div>
                                     <div>
                                         <a target="_blank" class="hover-underline" href="https://maps.google.com/?q={{ $order->full_address }}">{{ trans('plugins/ecommerce::order.see_maps') }}</a>

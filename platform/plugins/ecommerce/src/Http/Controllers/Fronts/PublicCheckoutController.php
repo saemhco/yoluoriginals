@@ -172,6 +172,7 @@ class PublicCheckoutController
 
         $sessionCheckoutData = $this->processOrderData($token, $sessionCheckoutData, $request);
 
+  //      return 'asdasd';
         if (is_plugin_active('marketplace')) {
             [
                 $sessionCheckoutData,
@@ -204,6 +205,7 @@ class PublicCheckoutController
                 'address'     => Arr::get($sessionCheckoutData, 'address'),
                 'state'       => Arr::get($sessionCheckoutData, 'state'),
                 'city'        => Arr::get($sessionCheckoutData, 'city'),
+                'ubigeo'        => Arr::get($sessionCheckoutData, 'ubigeo'),
                 'weight'      => $weight,
                 'order_total' => $orderTotal,
             ];
@@ -302,7 +304,7 @@ class PublicCheckoutController
                     'password_confirmation' => 'required|same:password',
                     'address.email'         => 'required|max:60|min:6|email|unique:ec_customers,email',
                     'address.name'          => 'required|min:3|max:120',
-                    'addres.ubigeo'        => 'required|string|min:6|max:6',
+                    'address.ubigeo'        => 'required|string|max:200',
                 ]);
 
                 if (!$validator->fails()) {
@@ -312,7 +314,7 @@ class PublicCheckoutController
                         'email'    => $request->input('address.email'),
                         'phone'    => $request->input('address.phone'),
                         'password' => bcrypt($request->input('password')),
-                        'ubigeo'    => $request->input('address.ubigeo'),
+                        //'ubigeo'    => $request->input('address.ubigeo'),
                     ]);
 
                     auth('customer')->attempt([
@@ -334,16 +336,16 @@ class PublicCheckoutController
                     ['customer_id' => auth('customer')->id(), 'is_default' => true]);
             }
         }
-
+        
         if (is_plugin_active('marketplace')) {
             $products = Cart::instance('cart')->products();
-
+            
             $sessionData = apply_filters(
                 HANDLE_PROCESS_ORDER_DATA_ECOMMERCE,
                 $products,
                 $token,
                 $sessionData,
-                $request
+                $request,
             );
 
             OrderHelper::setOrderSessionData($token, $sessionData);
@@ -419,10 +421,10 @@ class PublicCheckoutController
                 'state'      => $address->state,
                 'city'       => $address->city,
                 'address'    => $address->address,
+                'ubigeo'     => $address->ubigeo,
                 'zip_code'   => $address->zip_code,
                 'order_id'   => $sessionData['created_order_id'],
                 'address_id' => $address->id,
-                'ubigeo'     => $address->ubigeo,
             ];
         } elseif ((array)$request->input('address', [])) {
             $addressData = array_merge(
@@ -510,6 +512,7 @@ class PublicCheckoutController
             'state'   => 'required|max:120',
             'city'    => 'required|max:120',
             'address' => 'required|max:120',
+            'ubigeo' => 'required|string|max:120',
         ];
 
         if (EcommerceHelper::isZipCodeEnabled()) {
@@ -628,18 +631,18 @@ class PublicCheckoutController
 
         $this->processOrderData($token, $sessionData, $request);
 
-        // if (is_plugin_active('marketplace')) {
-        //     $products = Cart::instance('cart')->products();
+        //  if (is_plugin_active('marketplace')) {
+        //      $products = Cart::instance('cart')->products();
 
-        //     return apply_filters(
-        //         HANDLE_PROCESS_POST_CHECKOUT_ORDER_DATA_ECOMMERCE,
-        //         $products,
-        //         $request,
-        //         $token,
-        //         $sessionData,
-        //         $response
-        //     );
-        // }
+        //      return apply_filters(
+        //          HANDLE_PROCESS_POST_CHECKOUT_ORDER_DATA_ECOMMERCE,
+        //          $products,
+        //          $request,
+        //          $token,
+        //          $sessionData,
+        //          $response
+        //      );
+        //  }
         $weight = 0;
         foreach (Cart::instance('cart')->content() as $cartItem) {
             $product = $this->productRepository->findById($cartItem->id);
@@ -666,7 +669,7 @@ class PublicCheckoutController
                 'state'       => Arr::get($sessionData, 'state'),
                 'city'        => Arr::get($sessionData, 'city'),
                 'weight'      => $weight,
-                //'ubigeo'      => Arr::get($sessionData, 'city'),
+                'ubigeo'      => Arr::get($sessionData, 'ubigeo'),
                 'order_total' => Cart::instance('cart')->rawTotal() - $promotionDiscountAmount - $couponDiscountAmount,
             ];
 
@@ -1162,6 +1165,7 @@ class PublicCheckoutController
                 'state'                     => $order->address->state,
                 'city'                      => $order->address->city,
                 'zip_code'                  => $order->address->zip_code,
+                'ubigeo'                    => $order->address->ubigeo,
                 'shipping_method'           => $order->shipping_method,
                 'shipping_option'           => $order->shipping_option,
                 'shipping_amount'           => $order->shipping_amount,
@@ -1199,6 +1203,7 @@ class PublicCheckoutController
             'state'       => Arr::get($sessionCheckoutData, 'state'),
             'city'        => Arr::get($sessionCheckoutData, 'city'),
             'zip_code'    => Arr::get($sessionCheckoutData, 'zip_code'),
+            'ubigeo'    => Arr::get($sessionCheckoutData, 'ubigeo'),
             'weight'      => $weight,
             'order_total' => $orderTotal,
         ];

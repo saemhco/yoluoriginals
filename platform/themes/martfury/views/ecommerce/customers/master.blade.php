@@ -31,13 +31,13 @@
                                 <li @if (Route::currentRouteName() == 'customer.orders' || Route::currentRouteName() == 'customer.orders.view') class="active" @endif><a href="{{ route('customer.orders') }}"><i class="icon-papers"></i> {{ __('Orders') }}</a></li>
                                 <li @if (Route::currentRouteName() == 'customer.address' || Route::currentRouteName() == 'customer.address.create' || Route::currentRouteName() == 'customer.address.edit') class="active" @endif><a href="{{ route('customer.address') }}"><i class="icon-map-marker"></i> {{ __('Address') }}</a></li>
                                 <li @if (Route::currentRouteName() == 'customer.change-password') class="active" @endif><a href="{{ route('customer.change-password') }}"><i class="icon-lock"></i> {{ __('Change password') }}</a></li>
-                                @if (is_plugin_active('marketplace'))
+                                {{-- @if (is_plugin_active('marketplace'))
                                     @if (auth('customer')->user()->is_vendor)
                                         <li><a href="{{ route('marketplace.vendor.dashboard') }}"><i class="icon-cart"></i> {{ __('Vendor dashboard') }}</a></li>
                                     @else
                                         <li @if (Route::currentRouteName() == 'marketplace.vendor.become-vendor') class="active" @endif><a href="{{ route('marketplace.vendor.become-vendor') }}"><i class="icon-cart"></i> {{ __('Become a vendor') }}</a></li>
                                     @endif
-                                @endif
+                                @endif --}}
                                 <li><a href="{{ route('customer.logout') }}"><i class="icon-power-switch"></i>{{ __('Logout') }}</a></li>
                             </ul>
                         </div>
