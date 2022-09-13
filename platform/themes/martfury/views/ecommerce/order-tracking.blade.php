@@ -25,7 +25,28 @@
                 </div>
             </div>
         </form>
+        <div>
+  <div class="card">
+        <div class="card-body">
+               <div class="col-md-18" style="margin-top: 30px;"><h4>Estado de Pedido</h4></div>
+               <div class="form-group md-lg">
+                @foreach($estados as $est)
+                @if($est->estado=='En origen')
+                <button class="btn btn-primary" style="width: 100%; height: 35px; font-size: 16px;" >En Origen</button>
+                @elseif($est->estado=='En transito')
+                <button class="btn btn-info" style="width: 100%; height: 35px; font-size: 16px;" >En Transito</button>
+                @elseif($est->estado=='En destino')
+                <button class="btn btn-warning" style="width: 100%; height: 35px; font-size: 16px;" >En Destino</button>
+                @elseif($est->estado=='Entregado')
+                <button class="btn btn-success" style="width: 100%; height: 35px; font-size: 16px;" >Entregado</button>
+                @endif
+                @endforeach
+            </div>
 
+        </div>
+
+  </div>
+</div>
         @if ($order)
             <div class="customer-order-detail" style="margin-top: 60px">
                 <div class="row">

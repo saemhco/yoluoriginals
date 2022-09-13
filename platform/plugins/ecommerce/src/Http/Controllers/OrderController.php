@@ -184,6 +184,7 @@ class OrderController extends BaseController
             'description'          => $request->input('note'),
             'is_confirmed'         => 1,
             'status'               => OrderStatusEnum::PROCESSING,
+            'estado'               =>$request->estado,  
         ]);
 
         foreach ($request->input('products', []) as $productItem) {
@@ -567,6 +568,7 @@ class OrderController extends BaseController
             'status'     => ShippingStatusEnum::DELIVERING,
             'price'      => $order->shipping_amount,
             'store_id'   => $request->input('store_id'),
+            'estado'     =>$request->estado,
         ];
 
         $store = $this->storeLocatorRepository->findById($request->input('store_id'));

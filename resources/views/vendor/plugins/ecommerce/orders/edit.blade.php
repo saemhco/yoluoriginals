@@ -365,7 +365,7 @@
                                         @endif
                                     @endif
                                 </div>
-                            </div>
+                            </div>  
                             @if (!$order->shipment->id)
                                 <div class="shipment-create-wrap hidden"></div>
                             @else
@@ -501,8 +501,32 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="flexbox-layout-section-secondary mt20">
                     <div class="ui-layout__item">
+                        <div class="wrapper-content mb20">
+                            <form action="{{ route('orders.edit', $order->id) }} ">
+                            <div class="next-card-section p-none-t">
+                                <div class="flexbox-grid-default flexbox-align-items-center">
+                                    
+                                    <div class="flexbox-auto-content-left">
+                                       
+                                        <label for="" >Estado de Entrega: </label>
+                                          <select class="form-control" name="estado" id="">
+                                            @foreach(["En origen"=>"EN ORIGEN","En transito"=>"EN TRANSITO","En destino"=>"EN DESTINO","Entregado"=>"ENTREGADO"] as $est =>$estlabel)
+                                            <option value="{{ $est }}" @if($order->estado===$est) selected='selected' @endif>{{ $estlabel }}</option>
+                                            @endforeach
+                                            </select>  
+                                    </div>
+                                </div>
+                                <h1></h1>
+                                <div class="mt10">
+                                    <button type="button" class="btn btn-primary btn-update-order">{{ trans('plugins/ecommerce::order.save') }}</button>
+                                </div>
+                                </div>
+                                        
+                            </form>
+                            </div>
                         <div class="wrapper-content mb20">
                             <div class="next-card-section p-none-b">
                                 <div class="flexbox-grid-default flexbox-align-items-center">

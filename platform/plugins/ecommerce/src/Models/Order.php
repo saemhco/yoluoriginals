@@ -44,10 +44,14 @@ class Order extends BaseModel
         'is_confirmed',
         'discount_description',
         'is_finished',
+        'estado',
         'token',
     ];
 
-    /**
+    protected $estado = ['En origen','En transito','En destino','Entregado'];
+
+    protected $custemer_event=['estado'];   
+        /**
      * @var string[]
      */
     protected $casts = [
@@ -63,6 +67,9 @@ class Order extends BaseModel
         'updated_at',
     ];
 
+    public function est_event(){
+        return $this->estado;
+    }
     protected static function boot()
     {
         parent::boot();
