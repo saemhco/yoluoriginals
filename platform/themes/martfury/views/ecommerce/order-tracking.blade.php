@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="../saem/payment/css/tracking.css"> 
+
 <div class="ps-my-account">
     <div class="container">
         <form class="ps-form--account ps-tab-root" method="GET" action="{{ route('public.orders.tracking') }}">
@@ -26,28 +28,80 @@
             </div>
         </form>
         <div>
-  <div class="card">
-        <div class="card-body">
-               <div class="col-md-18" style="margin-top: 30px;"><h4>Estado de Pedido</h4></div>
-               <div class="form-group md-lg">
-                @foreach($estados as $est)
-                @if($est->estado=='En origen')
-                <button class="btn btn-primary" style="width: 100%; height: 35px; font-size: 16px;" >En Origen</button>
-                @elseif($est->estado=='En transito')
-                <button class="btn btn-info" style="width: 100%; height: 35px; font-size: 16px;" >En Transito</button>
-                @elseif($est->estado=='En destino')
-                <button class="btn btn-warning" style="width: 100%; height: 35px; font-size: 16px;" >En Destino</button>
-                @elseif($est->estado=='Entregado')
-                <button class="btn btn-success" style="width: 100%; height: 35px; font-size: 16px;" >Entregado</button>
-                @endif
-                @endforeach
-            </div>
-
+                      
+        
+            @if($order)
+            <div class="card">
+                <div class="container px-1 px-md-4 py-5 mx-auto">
+                    <div class="row d-flex justify-content-between px-3 top">
+                        <div class="d-flex">
+                            <h5>PEDIDO <p><span class="text-primary font-weight-bold"><strong>{{ get_order_code($order->id) }}</strong></span></p></h5>
+                        </div>
+                        <div class="d-flex flex-column text-sm-right">
+                            <p class="mb-0">Llegada Prevista: <span></span><strong>{{ $order->created_at->translatedFormat('M d, Y h:m') }}</strong></p>
+                            
+                        </div>
+                    </div>                    
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-12">
+                            <ul id="progressbar" class="text-center">
+                                @foreach($estados as $est)
+                                @if($est->estado=='En origen')
+                                <li class="active step0"></li>                                
+                                <li class="step0"></li>                                
+                                <li class="step0"></li>                                
+                                <li class="step0"></li>
+                                @elseif($est->estado=='En transito')
+                                <li class="active step0"></li>                                
+                                <li class="active step0"></li>                                
+                                <li class="step0"></li>                                
+                                <li class="step0"></li>
+                                @elseif($est->estado=='En destino')
+                                <li class="active step0"></li>                                
+                                <li class="active step0"></li>                                
+                                <li class="active step0"></li>                                
+                                <li class="step0"></li>
+                                @elseif($est->estado=='Entregado')
+                                <li class="active step0"></li>                                
+                                <li class="active step0"></li>                                
+                                <li class="active step0"></li>                                
+                                <li class="active step0"></li>
+                                @endif
+                                @endforeach
+                                
+                            </ul>
+                            </div>
+                        </div>
+                        <div class="row justify-content-between top">
+                            <div class="row d-flex icon-content">
+                                <img class="icon" src="https://i.imgur.com/9nnc9Et.png">
+                                <div class="d-flex flex-column">
+                                    <p class="font-weight-bold">Pedido<br>En origen</p>
+                                </div>
+                            </div>
+                            <div class="row d-flex icon-content">
+                                <img class="icon" src="https://i.imgur.com/TkPm63y.png">
+                                <div class="d-flex flex-column">
+                                    <p class="font-weight-bold">Pedido<br>En transito</p>
+                                </div>
+                            </div>
+                            <div class="row d-flex icon-content">
+                                <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
+                                <div class="d-flex flex-column">
+                                    <p class="font-weight-bold">Pedido<br>En destino</p>
+                                </div>
+                            </div>
+                            <div class="row d-flex icon-content">
+                                <img class="icon" src="https://i.imgur.com/HdsziHP.png">
+                                <div class="d-flex flex-column">
+                                    <p class="font-weight-bold">Pedido<br>Entregado</p>
+                                </div>
+                            </div>
+                        </div>                        
+                </div>
         </div>
-
-  </div>
 </div>
-        @if ($order)
+        {{-- @if ($order) --}}
             <div class="customer-order-detail" style="margin-top: 60px">
                 <div class="row">
                     <div class="col-md-6">
@@ -224,3 +278,4 @@
             </div>
     </div>
 </div>
+

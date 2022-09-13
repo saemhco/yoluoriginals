@@ -3,11 +3,11 @@
         <div class="ps-container">
             {{-- @if (is_plugin_active('ads') && (AdsManager::locationHasAds('top-slider-image-1') || AdsManager::locationHasAds('top-slider-image-2'))) --}}
                 <div class="ps-section__center">
-                    <div class="ps-carousel--nav-inside owl-slider " style="height: 600px; width: 90%; left:5%" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on" data-owl-animate-in="fadeIn" data-owl-animate-out="fadeOut">
+                    <div class="ps-carousel--nav-inside owl-slider " style="height: 600px; width:90%; left:5% " data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on" data-owl-animate-in="fadeIn" data-owl-animate-out="fadeOut">
                         @foreach($sliders as $slider)
-                            <div class="ps-banner bg--cover" data-background="{{ RvMedia::getImageUrl($slider->image, null, false, RvMedia::getDefaultImage()) }}">
+                            <div class="ps-banner bg--top" data-background="{{ RvMedia::getImageUrl($slider->image, null, false, RvMedia::getDefaultImage()) }}">
                                 @if ($slider->link)
-                                    <a class="ps-banner__overlay" href="{{ url($slider->link) }}"></a>
+                                    <a class="ps-banner__overlay" style="height:5%;" href="{{ url($slider->link) }}"></a>
                                 @endif
                             </div>
                         @endforeach
@@ -21,17 +21,18 @@
                         {!! AdsManager::display('top-slider-image-2') !!}
                     </div>
                 </div>
-            @else
-                <div class="ps-carousel--nav-inside owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on" data-owl-animate-in="fadeIn" data-owl-animate-out="fadeOut">
+                --}}
+            {{-- @else
+                <div class="ps-carousel--nav-inside owl-slider" style="" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on" data-owl-animate-in="fadeIn" data-owl-animate-out="fadeOut">
                     @foreach($sliders as $slider)
-                        <div class="ps-banner bg--cover" data-background="{{ RvMedia::getImageUrl($slider->image, null, false, RvMedia::getDefaultImage()) }}">
+                        <div class="ps-banner bg--top" data-background="{{ RvMedia::getImageUrl($slider->image, null, false, RvMedia::getDefaultImage()) }}">
                             @if ($slider->link)
                                 <a class="ps-banner__overlay" href="{{ url($slider->link) }}"></a>
                             @endif
                         </div>
                     @endforeach
                 </div>
-            @endif --}}
+            @endif  --}}
         </div>
     </div>
 @endif
