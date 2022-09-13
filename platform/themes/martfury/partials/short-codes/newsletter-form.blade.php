@@ -1,4 +1,4 @@
-<div class="ps-newsletter mt-40">
+{{-- <div class="ps-newsletter mt-40">
     <div class="ps-container newsletter-form">
         <form class="ps-form--newsletter" method="post" action="{{ route('public.newsletter.subscribe') }}">
             <div class="row">
@@ -30,4 +30,4 @@
             </div>
         </form>
     </div>
-</div>
+</div> --}}

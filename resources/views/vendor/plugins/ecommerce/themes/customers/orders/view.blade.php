@@ -33,7 +33,6 @@
                 <span>{{ __('Order status') }}:</span> <span
                     class="order-detail-value">{{ $order->status->label() }}</span>
             </div>
-            <div><h1>sadad</h1></div>
             <div class="col-md-12">
                 <span>{{ __('Payment method') }}:</span> <span
                     class="order-detail-value"> {{ $order->payment->payment_channel->label() }} </span>

@@ -1,4 +1,4 @@
-@if (count($ads))
+{{-- @if (count($ads))
     <div class="ps-home-ads mt-40 mb-40">
         <div class="ps-container">
             <div class="row">
@@ -12,4 +12,4 @@
             </div>
         </div>
     </div>
-@endif
+@endif --}}

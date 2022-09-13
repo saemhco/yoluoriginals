@@ -35,6 +35,7 @@ use SeoHelper;
 use SlugHelper;
 use Theme;
 use Botble\Ecommerce\Http\Resources\ProductVariationResource;
+use Botble\Ecommerce\Models\Order;
 
 class PublicProductController
 {
@@ -860,7 +861,7 @@ class PublicProductController
                 route('public.orders.tracking', $code));
 
         $orderId = get_order_id_from_order_code('#' . $code);
-
+        $estados= DB::table('ec_orders')->where('ec_orders.id',$orderId)->get();
         $order = null;
         if ($orderId) {
             $order = $orderRepository
@@ -873,7 +874,7 @@ class PublicProductController
                 ->first();
         }
 
-        return Theme::scope('ecommerce.order-tracking', compact('order'), 'plugins/ecommerce::themes.order-tracking')
+        return Theme::scope('ecommerce.order-tracking', compact('order','estados'), 'plugins/ecommerce::themes.order-tracking')
             ->render();
     }
 }
