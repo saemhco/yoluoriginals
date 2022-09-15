@@ -3,19 +3,19 @@
             <div class="ps-footer__widgets">
                 <aside class="widget widget_footer widget_contact-us">
                     <h4 class="widget-title">{{ __('Contact us') }}</h4>
-                    <div class="widget_content">
+                    <div class="widget_content" style="width: 400px">
                         @if (theme_option('hotline'))
                             <p>{{ __('Call us 24/7') }}</p>
                             <h3>{{ theme_option('hotline') }}</h3>
                         @endif
                         <p>{{ theme_option('address') }} <br><a href="mailto:{{ theme_option('email') }}">{{ theme_option('email') }}</a></p>
-                        <ul class="ps-list--social">
+                        <ul class="ps-list--social" style="text-align: center;">
                             @for($i = 1; $i <= 10; $i++)
                                 @if(theme_option('social-name-' . $i) && theme_option('social-url-' . $i) && theme_option('social-icon-' . $i))
                                     <li>
                                         <a href="{{ theme_option('social-url-' . $i) }}"
                                            title="{{ theme_option('social-name-' . $i) }}" style="color: {{ theme_option('social-color-' . $i) }}">
-                                            <i class="fa {{ theme_option('social-icon-' . $i) }}"></i>
+                                            <i class="fa {{ theme_option('social-icon-' . $i) }}" style="font-size: 2.5em"></i>
                                         </a>
                                     </li>
                                 @endif
