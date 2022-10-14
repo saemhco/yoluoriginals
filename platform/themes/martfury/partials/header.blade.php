@@ -10,6 +10,7 @@
         <!-- Fonts-->
         <link href="https://fonts.googleapis.com/css?family={{ urlencode(theme_option('primary_font', 'Work Sans')) }}:300,400,500,600,700&amp;amp;subset=latin-ext" rel="stylesheet" type="text/css">
         <!-- CSS Library-->
+        <link rel="stylesheet" type="text/css" href="saem/payment/css/style-header.css">
 
         <style>
             :root {
@@ -22,6 +23,7 @@
                 --header-text-accent-color: {{ theme_option('header_text_accent_color', '#222222') }};
                 --header-diliver-border-color: {{ hex_to_rgba(theme_option('header_text_color', '#000'), 0.15) }};
             }
+
         </style>
 
         {!! Theme::header() !!}
@@ -38,6 +40,14 @@
             <div class="header__top">
                 <div class="ps-container">
                     <div class="header__left">
+
+                                <a class="ps-logo" href="{{ route('public.index') }}"><img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" alt="{{ theme_option('site_title') }}"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="header__top" >
+                <div class="ps-container" >
+                    <div class="header__left">
                         <div class="menu--product-categories">
                             <div class="menu__toggle"><i class="icon-menu"></i><span> {{ __('Shop by Department') }}</span></div>
                             <div class="menu__content" style="display: none">
@@ -45,10 +55,11 @@
                                     {!! Theme::partial('product-categories-dropdown', compact('categories')) !!}
                                 </ul>
                             </div>
-                        </div><a class="ps-logo" href="{{ route('public.index') }}"><img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" alt="{{ theme_option('site_title') }}" height="40"></a>
+                        </div>
+
                     </div>
                     @if (is_plugin_active('ecommerce'))
-                        <div class="header__center">
+                        <div class="header__center" >
                             <form class="ps-form--quick-search" action="{{ route('public.products') }}" data-ajax-url="{{ route('public.ajax.search-products') }}" method="get">
                                 <div class="form-group--icon">
                                     <div class="product-cat-label">{{ __('All') }}</div>
@@ -203,3 +214,11 @@
                 ]) !!}
             </div>
         </div>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+
+$document.scroll(function() {
+  $(".newClass").toggleClass(newClass, $document.scrollTop() >= 50);
+});
+
+</script>

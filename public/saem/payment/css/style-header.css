@@ -1,0 +1,46 @@
+.header__left{
+    margin: auto;
+    text-align: center;
+}
+.header__left .ps-logo img{
+    height: 110px;
+    width: 210px;
+    }
+    .menu--product-categories {
+        display: block;
+        background-color: transparent;
+    }
+
+
+    @media (max-width: 769px) {
+
+        .navigation--mobile .ps-logo img{
+            height: 130px;
+        }
+        .navigation__left {
+            margin: auto;
+            text-align: center;
+            height: 180px;
+            } .ps-logo img{
+                margin: auto;
+                height: 140px;
+                vertical-align: middle;
+            }
+    }
+    @media (max-width: 1200px) {
+        .navigation--mobile .ps-logo img{
+            height: 130px;
+        }
+        .navigation__left {
+            margin: auto;
+            text-align: center;
+            height: 180px;
+            } .ps-logo img{
+                margin: auto;
+                height: 140px;
+                vertical-align: middle;
+            }
+    }
+
+
+
