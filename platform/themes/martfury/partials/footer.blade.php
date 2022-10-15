@@ -1,21 +1,62 @@
+<style>
+@media (max-width: 767px) {
+    .ps-footer{
+        margin: auto;
+        text-align: center;
+    }
+    .ps-container{
+        margin: auto;
+        text-align: center;
+    }
+    .ps-footer__widgets{
+        margin: auto;
+        text-align: center;
+        display: block;
+    }
+   .widget_content{
+    margin: auto;
+    text-align: center;
+   }
+   .widget_footer{
+    margin: auto;
+    text-align: center;
+   }
+   .widget_contact-us{
+    margin: auto;
+    text-align: center;
+   }
+   .widget-title{
+    margin: auto;
+    text-align: center;
+   }
+   .ps-footer__copyright{
+    margin: auto;
+    text-align: center;
+   }
+   .ps-list--social{
+    margin: auto;
+    text-align: center;
+   }
+}
+</style>
  <footer class="ps-footer">
         <div class="ps-container">
             <div class="ps-footer__widgets">
                 <aside class="widget widget_footer widget_contact-us">
                     <h4 class="widget-title">{{ __('Contact us') }}</h4>
-                    <div class="widget_content" style="width: 400px">
+                    <div class="widget_content">
                         @if (theme_option('hotline'))
                             <p>{{ __('Call us 24/7') }}</p>
                             <h3>{{ theme_option('hotline') }}</h3>
                         @endif
                         <p>{{ theme_option('address') }} <br><a href="mailto:{{ theme_option('email') }}">{{ theme_option('email') }}</a></p>
-                        <ul class="ps-list--social" style="text-align: center;">
+                        <ul class="ps-list--social">
                             @for($i = 1; $i <= 10; $i++)
                                 @if(theme_option('social-name-' . $i) && theme_option('social-url-' . $i) && theme_option('social-icon-' . $i))
                                     <li>
                                         <a href="{{ theme_option('social-url-' . $i) }}"
                                            title="{{ theme_option('social-name-' . $i) }}" style="color: {{ theme_option('social-color-' . $i) }}">
-                                            <i class="fa {{ theme_option('social-icon-' . $i) }}" style="font-size: 2.5em"></i>
+                                            <i class="fa {{ theme_option('social-icon-' . $i) }}" style="font-size: 2.6em"></i>
                                         </a>
                                     </li>
                                 @endif

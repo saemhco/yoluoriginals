@@ -23,8 +23,9 @@
             </div>
         @endif
     </div>
+
+
     <div class="navigation--mobile">
-        <div class="navigation__left"><a class="ps-logo" href="{{ route('public.index') }}"><img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" alt="{{ theme_option('site_title') }}"></a></div>
         @if (is_plugin_active('ecommerce'))
             <div class="navigation__right">
                 <div class="header__actions">
@@ -44,6 +45,11 @@
         @endif
     </div>
     @if (is_plugin_active('ecommerce'))
+
+        <div class="navigation__left">
+            <a class="ps-logo" href="{{ route('public.index') }}"><img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" alt="{{ theme_option('site_title') }}"></a>
+        </div>
+
         <div class="ps-search--mobile">
             <form class="ps-form--search-mobile" action="{{ route('public.products') }}" method="get">
                 <div class="form-group--nest">

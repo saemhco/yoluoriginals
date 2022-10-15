@@ -1,5 +1,5 @@
-{!! Theme::partial('header') !!}
 
+{!! Theme::partial('header') !!}
 <div id="homepage-1">
     {!! Theme::content() !!}
 </div>
