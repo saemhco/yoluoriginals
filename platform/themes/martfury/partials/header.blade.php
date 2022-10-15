@@ -11,7 +11,16 @@
         <link href="https://fonts.googleapis.com/css?family={{ urlencode(theme_option('primary_font', 'Work Sans')) }}:300,400,500,600,700&amp;amp;subset=latin-ext" rel="stylesheet" type="text/css">
         <!-- CSS Library-->
         <link rel="stylesheet" type="text/css" href="saem/payment/css/style-header.css">
-
+        <style>
+            #header__center_saem{
+                display:none;
+            }
+            .header--sticky #header__center_saem{
+                display:block;
+                text-align: center;
+                margin: 10px;
+            }
+        </style>
         <style>
             :root {
                 --color-1st: {{ theme_option('primary_color', '#fcb800') }};
@@ -35,18 +44,21 @@
         @endphp
 
         {!! Theme::get('topHeader') !!}
-
         <header class="header header--1" data-sticky="{{ Theme::get('stickyHeader', 'true') }}">
+
             <div class="header__top">
                 <div class="ps-container">
                     <div class="header__left">
-
-                                <a class="ps-logo" href="{{ route('public.index') }}"><img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" alt="{{ theme_option('site_title') }}"></a>
+                        <a class="ps-logo" href="{{ route('public.index') }}"><img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" alt="{{ theme_option('site_title') }}"></a>
                     </div>
                 </div>
             </div>
             <div class="header__top" >
+                    <div id="header__center_saem">
+                        <a class="ps-logo" href="{{ route('public.index') }}"><img width="100px" src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" alt="{{ theme_option('site_title') }}"></a>
+                    </div>
                 <div class="ps-container" >
+
                     <div class="header__left">
                         <div class="menu--product-categories">
                             <div class="menu__toggle"><i class="icon-menu"></i><span> {{ __('Shop by Department') }}</span></div>
@@ -92,7 +104,7 @@
                                     <div class="ps-cart--mini">
                                         <a class="header__extra btn-shopping-cart" href="{{ route('public.cart') }}"><i class="icon-bag2"></i><span><i>{{ Cart::instance('cart')->count() }}</i></span></a>
                                         <div class="ps-cart--mobile">
-                                            {!! Theme::partial('cart') !!}
+                                           {!! Theme::partial('cart') !!}
                                         </div>
                                     </div>
                                 @endif
