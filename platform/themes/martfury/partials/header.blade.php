@@ -12,6 +12,10 @@
         <!-- CSS Library-->
         <link rel="stylesheet" type="text/css" href="saem/payment/css/style-header.css">
         <style>
+            .header__left .ps-logo{
+                text-align: center;
+                margin-left: 60px;
+            }
             #header__center_saem{
                 display:none;
             }

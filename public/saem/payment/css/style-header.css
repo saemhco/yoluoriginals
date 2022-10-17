@@ -10,10 +10,64 @@
         display: block;
         background-color: transparent;
     }
-
-
+    @media (max-width: 320px) {
+        .navigation--mobile .ps-logo{
+            margin-left: 30px;
+            vertical-align: middle;
+        }
+    }
+    @media (max-width: 375px) {
+        .navigation--mobile .ps-logo{
+            margin-left: 45px;
+            vertical-align: middle;
+        }
+    }
     @media (max-width: 769px) {
+        .navigation--mobile{
+            padding-top: 25px;
+            text-align: center;
+        }
+        .navigation--mobile .ps-logo{
+            margin-left: 80px;
+            vertical-align: middle;
+        }
+        .navigation--mobile .ps-logo img{
+            height: 130px;
+        }
+        .navigation__left {
+            margin: auto;
+            padding-top: 20px;
+            text-align: center;
+            height: 180px;
+            }
+        .navigation__left .ps-logo img{
+                margin: auto;
+                height: 140px;
+                vertical-align: middle;
+            }
+            #header__center_saem .ps-logo img{
+               margin: auto;
+               text-align: center;
+               vertical-align: middle;
+               height: 50px;
+                padding-top: 10px;
+            }
+            #header__center_saem{
+                display:none;
+                vertical-align: middle;
+            }
+            .header--sticky #header__center_saem{
+                display:block;
+                text-align: center;
+                margin:30;
 
+            }
+    }
+    @media (max-width: 1200px) {
+        .navigation--mobile{
+            padding-top: 25px;
+            text-align: center;
+        }
         .navigation--mobile .ps-logo img{
             height: 130px;
         }
@@ -26,19 +80,22 @@
                 height: 140px;
                 vertical-align: middle;
             }
-    }
-    @media (max-width: 1200px) {
-        .navigation--mobile .ps-logo img{
-            height: 130px;
-        }
-        .navigation__left {
-            margin: auto;
-            text-align: center;
-            height: 180px;
-            } .ps-logo img{
+            #header__center_saem .ps-logo img{
                 margin: auto;
-                height: 140px;
+                text-align: center;
                 vertical-align: middle;
+                height: 50px;
+                padding-top: 10px;
+             }
+            #header__center_saem{
+                display:none;
+                margin-left: 10px;
+            }
+            .header--sticky #header__center_saem{
+                display:block;
+                text-align: center;
+                margin:30;
+
             }
     }
 

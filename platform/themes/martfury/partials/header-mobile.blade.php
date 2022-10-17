@@ -1,3 +1,4 @@
+
 <header class="header header--mobile" data-sticky="true">
     <div class="header__top">
         <div class="header__left">
@@ -23,10 +24,19 @@
             </div>
         @endif
     </div>
-
-
-    <div class="navigation--mobile">
-        @if (is_plugin_active('ecommerce'))
+        <div class="navigation--mobile">
+            @if (is_plugin_active('ecommerce'))
+            <div class="ps-search--mobile">
+                <form class="ps-form--search-mobile" action="{{ route('public.products') }}" method="get">
+                    <div class="form-group--nest">
+                        <input class="form-control" name="q" value="{{ request()->query('q') }}" type="text" placeholder="{{ __('Search something...') }}">
+                        <button type="submit"><i class="icon-magnifier"></i></button>
+                    </div>
+                </form>
+                <div id="header__center_saem">
+                    <a class="ps-logo" href="{{ route('public.index') }}"><img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" alt="{{ theme_option('site_title') }}"></a>
+                </div>
+            </div>
             <div class="navigation__right">
                 <div class="header__actions">
                     <div class="ps-cart--mini">
@@ -44,11 +54,15 @@
             </div>
         @endif
     </div>
-    @if (is_plugin_active('ecommerce'))
 
-        <div class="navigation__left">
-            <a class="ps-logo" href="{{ route('public.index') }}"><img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" alt="{{ theme_option('site_title') }}"></a>
-        </div>
+    <div class="navigation__left">
+        <a class="ps-logo" href="{{ route('public.index') }}"><img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" alt="{{ theme_option('site_title') }}"></a>
+    </div>
+
+
+
+{{--
+    @if (is_plugin_active('ecommerce'))
 
         <div class="ps-search--mobile">
             <form class="ps-form--search-mobile" action="{{ route('public.products') }}" method="get">
@@ -58,5 +72,5 @@
                 </div>
             </form>
         </div>
-    @endif
+    @endif --}}
 </header>
